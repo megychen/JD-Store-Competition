@@ -1,5 +1,5 @@
-<div class="col-md-6 col-sm-12">
-  <figure class="snip1423">
+<div class="col-md-4 col-sm-4 col-xs-6 item">
+  <div class="image">
     <%= link_to product_path(product) do %>
       <% if product.photos.present? %>
         <%= image_tag(product.photos[0].image.url) %>
@@ -7,32 +7,37 @@
         <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
       <% end %>
     <% end %>
-    <figcaption>
-      <h3><%= link_to(product.title, product_path(product)) %> <span>￥<%= product.price %></span></h3>
-      <p>
-        已成交4单
+  </div>
+
+  <div class="fig">
+    <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
+    <p class="actions">
+      <span class="price">￥<%= product.price %></span>
+      <span class="pull-right">
         <% if product.quantity.present? && product.quantity > 0 %>
-          <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-2x"), add_to_cart_product_path(product), :method => :post) %>
+          <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
         <% else %>
           已售馨
         <% end %>
-        <i class="sub"><%= product.fans.count %></i>
+      </span>
+      <span class="pull-right">
         <% if user_signed_in? %>
           <% if !current_user.is_fan_of?(product) %>
             <%= link_to favorite_product_path(product), method: :post do %>
-              <i class="fa fa-heart-o fa-2x"></i>
+              <i class="fa fa-heart-o fa-lg"></i>
             <% end %>
           <% else %>
             <%= link_to unfavorite_product_path(product), method: :post do %>
-              <i class="fa fa-heart-o fa-2x"></i>
+              <i class="fa fa-heart fa-lg"></i>
             <% end %>
           <% end %>
         <% else %>
           <%= link_to favorite_product_path(product), method: :post do %>
-            <i class="fa fa-heart-o fa-2x"></i>
+            <i class="fa fa-heart-o fa-lg"></i>
           <% end %>
         <% end %>
-      </p>
-    </figcaption>
-  </figure>
+        <i class="sub"><%= product.fans.count %></i>
+      </span>
+    </p>
+  </div>
 </div>

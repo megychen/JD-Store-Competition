@@ -95,10 +95,10 @@
           欢迎来到乐活生活馆
         </h2>
         <h2>
-          ——好物尽在这里
+          — —好物尽在这里
         </h2>
         <h2>
-          ——随便逛逛, <%= link_to("点这里", products_path) %>
+          — —随便逛逛, <%= link_to("点这里", products_path) %>
         </h2>
       </div>
     </div>
@@ -106,111 +106,124 @@
 </header>
 
 <div id="products">
-  <div class="wrapper1">
+  <div class="welcome-lists">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+
+      <div class="list-wrapper">
         <!-- Search area -->
         <%= form_tag search_products_path , :method => :get, :class => "search-container" do %>
-          <input type="text", id="search-bar", name="q" value="<%= params[:q] %>" placeholder="产品，描述...">
+          <input type="text", id="search-bar", name="q" value="<%= params[:q] %>" placeholder="产品、描述...">
           <button type="submit" class="search-icon">
             <span class="fa fa-search fa-2x"></span>
           </button>
         <% end %>
         <!-- End Search -->
 
-        <h2 class="text-center">热销商品</h2>
-        <div class="row hot-products">
-          <% Product.all.each do |product| %>
-          <div class="col-md-6 col-sm-12">
-            <figure class="snip1423">
-              <%= link_to product_path(product) do %>
-                <% if product.photos.present? %>
-                  <%= image_tag(product.photos[0].image.url) %>
-                <% else %>
-                  <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-                <% end %>
+        <h2 class="text-center">人气商品</h2>
+        <% Product.all.limit(6).sort_by{|product| -product.fans.count}.each do |product| %>
+        <div class="col-md-4 col-sm-4 col-xs-6 item">
+          <div class="image">
+            <%= link_to product_path(product) do %>
+              <% if product.photos.present? %>
+                <%= image_tag(product.photos[0].image.url) %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
               <% end %>
-              <figcaption>
-                <h3><%= link_to(product.title, product_path(product)) %> <span>￥<%= product.price %></span></h3>
-                <p>
-                  已成交6单
-                  <% if product.quantity.present? && product.quantity > 0 %>
-                    <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-2x"), add_to_cart_product_path(product), :method => :post) %>
-                  <% else %>
-                    已售馨
-                  <% end %>
-                  <i class="sub"><%= product.fans.count %></i>
-                  <% if user_signed_in? %>
-                    <% if !current_user.is_fan_of?(product) %>
-            				  <%= link_to favorite_product_path(product), method: :post do %>
-            					  <i class="fa fa-heart-o fa-2x"></i>
-            				  <% end %>
-            			  <% else %>
-            				  <%= link_to unfavorite_product_path(product), method: :post do %>
-            					  <i class="fa fa-heart fa-2x"></i>
-            				  <% end %>
-            			  <% end %>
-                  <% else %>
+            <% end %>
+          </div>
+
+          <div class="fig">
+            <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
+            <p class="actions">
+              <span class="price">￥<%= product.price %></span>
+              <span class="pull-right">
+                <% if product.quantity.present? && product.quantity > 0 %>
+                  <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
+                <% else %>
+                  已售馨
+                <% end %>
+              </span>
+              <span class="pull-right">
+                <% if user_signed_in? %>
+                  <% if !current_user.is_fan_of?(product) %>
                     <%= link_to favorite_product_path(product), method: :post do %>
-                      <i class="fa fa-heart-o fa-2x"></i>
+                      <i class="fa fa-heart-o fa-lg"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to unfavorite_product_path(product), method: :post do %>
+                      <i class="fa fa-heart fa-lg"></i>
                     <% end %>
                   <% end %>
-                </p>
-              </figcaption>
-            </figure>
-          </div>
-          <% end %>
-        </div>
-
-
-        <h2 class="text-center">精选商品</h2>
-        <div class="row specific-products">
-          <% Product.last(4).each do |product| %>
-          <div class="col-md-6 col-sm-12">
-            <figure class="snip1423">
-              <%= link_to product_path(product) do %>
-                <% if product.photos.present? %>
-                  <%= image_tag(product.photos[0].image.url) %>
                 <% else %>
-                  <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+                  <%= link_to favorite_product_path(product), method: :post do %>
+                    <i class="fa fa-heart-o fa-lg"></i>
+                  <% end %>
                 <% end %>
-              <% end %>
-              <figcaption>
-                <h3><%= link_to(product.title, product_path(product)) %> <span>￥<%= product.price %></span></h3>
-                <p>
-                  已成交5单
-                  <% if product.quantity.present? && product.quantity > 0 %>
-                    <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-2x"), add_to_cart_product_path(product), :method => :post) %>
-                  <% else %>
-                    已售馨
-                  <% end %>
-                  <i class="sub"><%= product.fans.count %></i>
-                  <% if user_signed_in? %>
-                    <% if !current_user.is_fan_of?(product) %>
-            				  <%= link_to favorite_product_path(product), method: :post do %>
-            					  <i class="fa fa-heart-o fa-2x"></i>
-            				  <% end %>
-            			  <% else %>
-            				  <%= link_to unfavorite_product_path(product), method: :post do %>
-            					  <i class="fa fa-heart-o fa-2x"></i>
-            				  <% end %>
-            			  <% end %>
-                  <% else %>
-                    <%= link_to favorite_product_path(product), method: :post do %>
-                      <i class="fa fa-heart-o fa-2x"></i>
-                    <% end %>
-                  <% end %>
-                </p>
-              </figcaption>
-            </figure>
+                <i class="sub"><%= product.fans.count %></i>
+              </span>
+            </p>
           </div>
-          <% end %>
         </div>
+        <% end %>
       </div>
-    </div>
 
+      <div class="list-wrapper">
+        <h2 class="text-center">精选商品</h2>
+        <% Product.all.last(6).each do |product| %>
+        <div class="col-md-4 col-sm-4 col-xs-6 item">
+          <div class="image">
+            <%= link_to product_path(product) do %>
+              <% if product.photos.present? %>
+                <%= image_tag(product.photos[0].image.url) %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="fig">
+            <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
+            <p class="actions">
+              <span class="price">￥<%= product.price %></span>
+              <span class="pull-right">
+                <% if product.quantity.present? && product.quantity > 0 %>
+                  <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
+                <% else %>
+                  已售馨
+                <% end %>
+              </span>
+              <span class="pull-right">
+                <% if user_signed_in? %>
+                  <% if !current_user.is_fan_of?(product) %>
+                    <%= link_to favorite_product_path(product), method: :post do %>
+                      <i class="fa fa-heart-o fa-lg"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to unfavorite_product_path(product), method: :post do %>
+                      <i class="fa fa-heart fa-lg"></i>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <%= link_to favorite_product_path(product), method: :post do %>
+                    <i class="fa fa-heart-o fa-lg"></i>
+                  <% end %>
+                <% end %>
+                <i class="sub"><%= product.fans.count %></i>
+              </span>
+            </p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
   </div>
 </div>
+
+
+
+
+
 <div class="footer">
   <div class="row">
     <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
@@ -254,7 +267,7 @@
   </div>
   <div class="copyright">
     <div class="design">
-      <span><a href="#">Github仓库</a></span>  <span><a href="#">关于我们</a></span>  <span><a href="#">联系我们</a></span>
+      <span><a href="https://github.com" target="_blank">Github仓库</a></span>  <span><a href="#">关于我们</a></span>  <span><a href="#">联系我们</a></span>
       <p>@Copyright 2017 乐活生活馆网站是由<span>陈慧娟</span> 和 <span>刘慧玲</span>共同打造</p>
       <p>再次感谢您的光临</p>
     </div>
