@@ -43,6 +43,7 @@ gem 'paperclip'
 gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'figaro'
+
 gem 'fog-aws'
 
 group :development, :test do
