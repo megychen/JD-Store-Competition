@@ -81,7 +81,6 @@
   </nav>
   <div class="row">
     <div class="col-md-12">
-
      <%= render "common/flashes" %>
     </div>
     <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-6">
@@ -94,11 +93,11 @@
         <h2>
           欢迎来到乐活生活馆
         </h2>
-        <h2>
-          — —好物尽在这里
+        <h2 class="sub-slogan1">
+          好物等你发现
         </h2>
-        <h2>
-          — —随便逛逛, <%= link_to("点这里", products_path) %>
+        <h2 class="sub-slogan2">
+          <%= link_to("随便逛逛", products_path) %>
         </h2>
       </div>
     </div>
@@ -107,121 +106,114 @@
 
 <div id="products">
   <div class="welcome-lists">
+    <!-- Search area -->
+    <%= form_tag search_products_path , :method => :get, :class => "search-container" do %>
+      <input type="text", id="search-bar", name="q" value="<%= params[:q] %>" placeholder="产品、描述...">
+      <button type="submit" class="search-icon">
+        <span class="fa fa-search fa-2x"></span>
+      </button>
+    <% end %>
+    <!-- End Search -->
+
     <div class="row">
-
-      <div class="list-wrapper">
-        <!-- Search area -->
-        <%= form_tag search_products_path , :method => :get, :class => "search-container" do %>
-          <input type="text", id="search-bar", name="q" value="<%= params[:q] %>" placeholder="产品、描述...">
-          <button type="submit" class="search-icon">
-            <span class="fa fa-search fa-2x"></span>
-          </button>
-        <% end %>
-        <!-- End Search -->
-
-        <h2 class="text-center">人气商品</h2>
-        <% Product.all.limit(6).sort_by{|product| -product.fans.count}.each do |product| %>
-        <div class="col-md-4 col-sm-4 col-xs-6 item">
-          <div class="image">
-            <%= link_to product_path(product) do %>
-              <% if product.photos.present? %>
-                <%= image_tag(product.photos[0].image.url) %>
-              <% else %>
-                <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-              <% end %>
+      <h2>人气商品</h2>
+      <% Product.all.limit(6).sort_by{|product| -product.fans.count}.each do |product| %>
+      <div class="col-md-4 col-sm-4 col-xs-6 item">
+        <div class="image">
+          <%= link_to product_path(product) do %>
+            <% if product.photos.present? %>
+              <%= image_tag(product.photos[0].image.url) %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
             <% end %>
-          </div>
+          <% end %>
+        </div>
 
-          <div class="fig">
-            <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
-            <p class="actions">
-              <span class="price">￥<%= product.price %></span>
-              <span class="pull-right">
-                <% if product.quantity.present? && product.quantity > 0 %>
-                  <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
-                <% else %>
-                  已售馨
-                <% end %>
-              </span>
-              <span class="pull-right">
-                <% if user_signed_in? %>
-                  <% if !current_user.is_fan_of?(product) %>
-                    <%= link_to favorite_product_path(product), method: :post do %>
-                      <i class="fa fa-heart-o fa-lg"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to unfavorite_product_path(product), method: :post do %>
-                      <i class="fa fa-heart fa-lg"></i>
-                    <% end %>
-                  <% end %>
-                <% else %>
+        <div class="fig">
+          <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
+          <p class="actions">
+            <span class="price">￥<%= product.price %></span>
+            <span class="pull-right">
+              <% if product.quantity.present? && product.quantity > 0 %>
+                <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
+              <% else %>
+                已售馨
+              <% end %>
+            </span>
+            <span class="pull-right">
+              <% if user_signed_in? %>
+                <% if !current_user.is_fan_of?(product) %>
                   <%= link_to favorite_product_path(product), method: :post do %>
                     <i class="fa fa-heart-o fa-lg"></i>
                   <% end %>
-                <% end %>
-                <i class="sub"><%= product.fans.count %></i>
-              </span>
-            </p>
-          </div>
-        </div>
-        <% end %>
-      </div>
-
-      <div class="list-wrapper">
-        <h2 class="text-center">精选商品</h2>
-        <% Product.all.last(6).each do |product| %>
-        <div class="col-md-4 col-sm-4 col-xs-6 item">
-          <div class="image">
-            <%= link_to product_path(product) do %>
-              <% if product.photos.present? %>
-                <%= image_tag(product.photos[0].image.url) %>
-              <% else %>
-                <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-              <% end %>
-            <% end %>
-          </div>
-
-          <div class="fig">
-            <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
-            <p class="actions">
-              <span class="price">￥<%= product.price %></span>
-              <span class="pull-right">
-                <% if product.quantity.present? && product.quantity > 0 %>
-                  <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
                 <% else %>
-                  已售馨
-                <% end %>
-              </span>
-              <span class="pull-right">
-                <% if user_signed_in? %>
-                  <% if !current_user.is_fan_of?(product) %>
-                    <%= link_to favorite_product_path(product), method: :post do %>
-                      <i class="fa fa-heart-o fa-lg"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to unfavorite_product_path(product), method: :post do %>
-                      <i class="fa fa-heart fa-lg"></i>
-                    <% end %>
+                  <%= link_to unfavorite_product_path(product), method: :post do %>
+                    <i class="fa fa-heart fa-lg"></i>
                   <% end %>
-                <% else %>
+                <% end %>
+              <% else %>
+                <%= link_to favorite_product_path(product), method: :post do %>
+                  <i class="fa fa-heart-o fa-lg"></i>
+                <% end %>
+              <% end %>
+              <i class="sub"><%= product.fans.count %></i>
+            </span>
+          </p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <h2>精选商品</h2>
+      <% Product.all.last(6).each do |product| %>
+      <div class="col-md-4 col-sm-4 col-xs-6 item">
+        <div class="image">
+          <%= link_to product_path(product) do %>
+            <% if product.photos.present? %>
+              <%= image_tag(product.photos[0].image.url) %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="fig">
+          <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
+          <p class="actions">
+            <span class="price">￥<%= product.price %></span>
+            <span class="pull-right">
+              <% if product.quantity.present? && product.quantity > 0 %>
+                <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
+              <% else %>
+                已售馨
+              <% end %>
+            </span>
+            <span class="pull-right">
+              <% if user_signed_in? %>
+                <% if !current_user.is_fan_of?(product) %>
                   <%= link_to favorite_product_path(product), method: :post do %>
                     <i class="fa fa-heart-o fa-lg"></i>
                   <% end %>
+                <% else %>
+                  <%= link_to unfavorite_product_path(product), method: :post do %>
+                    <i class="fa fa-heart fa-lg"></i>
+                  <% end %>
                 <% end %>
-                <i class="sub"><%= product.fans.count %></i>
-              </span>
-            </p>
-          </div>
+              <% else %>
+                <%= link_to favorite_product_path(product), method: :post do %>
+                  <i class="fa fa-heart-o fa-lg"></i>
+                <% end %>
+              <% end %>
+              <i class="sub"><%= product.fans.count %></i>
+            </span>
+          </p>
         </div>
-        <% end %>
       </div>
-
+      <% end %>
     </div>
   </div>
 </div>
-
-
-
 
 
 <div class="footer">

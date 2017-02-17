@@ -24,7 +24,7 @@ CarrierWave.configure do |config|
 
 
     }
-    config.fog_directory  = ENV["megy-jdstore"]
+    config.fog_directory  = ENV["AWS_BUCKET_NAME"]
 
       region:                'ap-northeast-1' # 你的 S3 bucket 的 Region 位置
 

@@ -2,15 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*  PRODUCTS LIST PAGE */
 
-.list-wrapper {
+
+.products-1 {
   width: 950px;
+  padding-top: 65px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
 }
 
+.products-1 .introduction {
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: right;
+}
+.products-1 .introduction-sub {
+  text-align: right;
+  padding-bottom: 30px;
+}
+
 .proposal-product {
+  background: #fff;
   .item {
     margin-bottom: 15px;
   }
@@ -86,14 +101,37 @@
 }
 
 .page-footer {
-  width: 52%;
+  width: 50%;
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 30px;
   border-top: 1px solid #D3D3D3;
 }
 
+
 /* Product#show */
+
+.show-page {
+  padding-top: 60px;
+  width: 950px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 950px;
+  background: #fff;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+}
+
+.show-page .row{
+  margin-left: 0;
+}
+
+.show-page .col-md-8 {
+  padding: 0;
+}
+
 preview {
   display: -webkit-box;
   display: -webkit-flex;
@@ -121,7 +159,8 @@ preview {
   margin-top: 15px; }
   .preview-thumbnail.nav-tabs li {
     width: 18%;
-    margin-right: 2.5%; }
+    margin-right: 2.5%;
+  }
     .preview-thumbnail.nav-tabs li img {
       max-width: 100%;
       display: block; }
@@ -141,16 +180,6 @@ preview {
     -webkit-animation-duration: .3s;
             animation-duration: .3s; }
 
-.card {
-  margin-left: 20px;
-  margin-right: 40px;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  background: #fff;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  line-height: 1.5em;
-   }
 
 @media screen and (min-width: 997px) {
   .wrapper {
@@ -183,7 +212,7 @@ preview {
 
 .insurance {
   position: absolute;
-  bottom: 40px;
+  bottom: -280px;
 }
 
 form{
@@ -244,15 +273,24 @@ a:-webkit-any-link {
 
 
 /* Tabs panel */
-.tabs{
+
+/* .tabs{
   background-color:#fff;
   padding-left:0;
   padding-right:0px;
   margin-right:20px;
   margin-left:20px;
 }
+
 .tabbable-panel {
   padding: 10px;
+}*/
+.tabs {
+  background-color:#fff;
+}
+
+.tab-pane img {
+  width: 100%;
 }
 
 /* Default mode */
