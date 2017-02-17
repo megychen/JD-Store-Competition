@@ -200,7 +200,7 @@
   margin-top: 40px;
   padding-bottom: 40px;
 }
-.welcome-lists img, .products-1 img, .proposal-product img {
+.welcome-lists img, .products-1 .image img, .proposal-product .image img {
   width: 100%;
   height: 300px;
   display: inline-block;
@@ -218,7 +218,7 @@ div.fig {
   padding: 5px;
 }
 
-.welcome-lists .image:hover img {
+.welcome-lists .image:hover img, .products-1 .image:hover img {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
