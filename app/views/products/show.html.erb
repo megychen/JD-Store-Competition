@@ -1,4 +1,7 @@
 <div class="show-page">
+  <div class="pull-right show-option">
+    <%= @product.fans.count %>人已收藏 | <%= link_to("返回首页", url_for(:back)) %>
+  </div>
   <div class="row card">
     <div class="preview col-md-7 " style="margin-top:30px;">
       <div class="preview-pic tab-content" >
@@ -24,9 +27,9 @@
       <h3 class="product-title"><%= @product.title %></h3>
       <div class="rating">
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <em><%= "#{@reviews.length} reviews" %></em>
+        <span><%= "#{@reviews.length} 人已评论" %></span>
       </div>
-      <p class="product-description"><%= @product.description %></p>
+      <p class="product-description"><%= simple_format(@product.description) %></p>
       <p class="price">价格: <span>￥<%= @product.price %></span></p>
       <p class="quantity">数量 : <span><%= @product.quantity %></span> </p>
       <p class="sizes">规格: <span><%= @product.size %></span></p>
@@ -85,14 +88,14 @@
             <%= simple_form_for([@product, @review]) do |f| %>
             <div class="form-inputs">
             <div id="star-rating"></div>
-            <%= f.input :comment %>
+            <%= f.input :comment, label: "添加评论" %>
           </div>
           <div class="form-actions">
-            <%= f.button :submit %>
+            <%= f.button :submit, value="提交" %>
           </div>
         <% end %>
         <% if @reviews.blank? %>
-          <h4>这个宝贝还没有人评论，来为它添加一个吧！</h4>
+          <p>这个宝贝还没有人评论，来为它添加一个吧！</p>
         <% else %>
           <% @reviews.each do |review| %>
             <div class="reviews">
