@@ -16,6 +16,7 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="col-md-3 sidebar">
             <p><%= link_to("全部商品", admin_products_path) %></p>
+            <p><%= link_to("类别管理", admin_categories_path) %></p>
             <div>
               <span style="color: #337ab7; padding-left: 40px;">商品分类:</span>
               <ul>
@@ -25,10 +26,9 @@
                   </li>
                 <% end %>
               </ul>
-
             </div>
             <p><%= link_to("订单查询", admin_orders_path) %></p>
-            <p><%= link_to("首页", products_path) %> | <%= link_to("返回", admin_products_path) %> | <%= link_to("新增分类", new_category_path) %></p>
+            <p><%= link_to("首页", products_path) %></p>
           </div>
           <div class="col-md-8">
             <%= yield %>

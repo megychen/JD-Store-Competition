@@ -19,15 +19,18 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.all.map { |c| [c.name, c.id] }
     @photo = @product.photos.build
   end
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.all.map { |c| [c.name, c.id] }
   end
 
   def create
     @product = Product.create(product_params)
+    @product.category_id = params[:category_id]
     if @product.save
       if params[:photos] != nil
         params[:photos]['image'].each do |a|
@@ -42,6 +45,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @product.category_id = params[:category_id]
     if params[:photos] != nil
 
       @product.photos.destroy_all

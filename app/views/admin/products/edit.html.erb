@@ -1,12 +1,12 @@
 <div class="col-md-8 col-md-offset-2">
   <h2 class="text-center">Edit a Product</h2>
   <%= simple_form_for [:admin, @product] do |f| %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :quantity %>
     <%= f.input :price %>
     <%= f.input :size, placeholder: "请输入产品规格"%>
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "类别") %>
     <% if @product.photos.present? %>
       <span>目前商品图</span><br>
       <% @product.photos.each do |p| %>
