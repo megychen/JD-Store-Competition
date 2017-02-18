@@ -5,6 +5,7 @@
 /*  PRODUCTS LIST PAGE */
 
 
+
 .products-1 {
   width: 950px;
   padding-top: 65px;
@@ -15,18 +16,42 @@
 
 .products-1 .introduction {
   font-size: 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align: right;
 }
 .products-1 .introduction-sub {
   text-align: right;
-  padding-bottom: 30px;
 }
 
+/* Carousel effect */
+
+.carousel {
+  margin-bottom: 20px;
+}
+.carousel-inner {
+  height: 380px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  width: 100% ;
+}
+
+.carousel-caption {
+  text-align: left !important;
+  left: 2% !important;
+}
+
+/*  End of Carousel */
+
+
+
+
 .proposal-product {
+  border: 1px solid #ddd;
   background: #fff;
-  .item {
+
+  div.item {
     margin-bottom: 15px;
   }
 
@@ -84,7 +109,7 @@
   }
 
   .actions .fa-heart, .actions .fa-heart-o {
-    color: #ff6d53;
+    color: #e15336;
   }
 
   .actions i.sub {
@@ -112,9 +137,21 @@
 /* Product#show */
 
 .show-page {
-  padding-top: 60px;
+  padding-top: 100px;
   width: 950px;
   margin: 0 auto;
+}
+
+.show-option {
+  margin-top: -30px;
+  color: #999;
+  a {
+    color: #000;
+  }
+  a:hover {
+    color: #999;
+    text-decoration: none;
+  }
 }
 
 .card {
@@ -122,6 +159,7 @@
   background: #fff;
   margin-bottom: 20px;
   padding-bottom: 15px;
+  border: 1px solid #ddd;
 }
 
 .show-page .row{
@@ -172,7 +210,9 @@ preview {
 
 
 .tab-content {
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 15px;
+}
   .tab-content img {
 
     -webkit-animation-name: opacity;
@@ -202,7 +242,7 @@ preview {
 
 
 .price span {
-  color: red;
+  color: #e15336;
 }
 
 
@@ -256,10 +296,10 @@ a:-webkit-any-link {
 }
 
 .add-to-cart.btn-default {
-  color: red;
+  color: #e15336;
 }
 .add-to-cart.btn-default:hover {
-  color: red;
+  color: #e15336;
   text-decoration: none;
 }
 
@@ -287,11 +327,14 @@ a:-webkit-any-link {
 }*/
 .tabs {
   background-color:#fff;
+  border: 1px solid #ddd;
+  margin-right: 10px;
+  margin-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
 }
 
-.tab-pane img {
-  width: 100%;
-}
 
 /* Default mode */
 .tabbable-line > .nav-tabs {

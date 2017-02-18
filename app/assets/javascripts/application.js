@@ -21,3 +21,8 @@ $(".hover").mouseleave(
     $(this).removeClass("hover");
   }
 );
+
+
+/* carousel effect  */
+
+$('.carousel').carousel()
