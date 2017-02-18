@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .
 
 $(".hover").mouseleave(
