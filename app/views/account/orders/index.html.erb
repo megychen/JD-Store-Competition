@@ -1,22 +1,27 @@
-<h2>订单列表</h2>
+<div class="col-md-8 col-md-offset-2" style="margin-top: 80px;">
+  <% if @orders.present? %>
+    <h4 style="color: rgba(0, 0, 0, 0.5);">订单列表(<%= @orders.count %>)</h4>
+  <% end %>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>生成时间</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
+  <br>
+  <table class="table table-bordered">
+    <thead>
       <tr>
-        <td>
-          <%= link_to(order.id, order_path(order.token)) %>
-        </td>
-        <td>
-          <%= order.created_at.to_s(:long) %>
-        </td>
+        <th>#</th>
+        <th>下单时间</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= link_to(order.id, order_path(order.token)) %>
+          </td>
+          <td>
+            <%= order.created_at.to_s(:long) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
