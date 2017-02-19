@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218093613) do
+ActiveRecord::Schema.define(version: 20170219061547) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -92,11 +92,15 @@ ActiveRecord::Schema.define(version: 20170218093613) do
     t.text     "description"
     t.integer  "quantity"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image"
     t.integer  "category_id"
     t.string   "size"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "rates", force: :cascade do |t|
@@ -145,7 +149,6 @@ ActiveRecord::Schema.define(version: 20170218093613) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
-    t.integer  "user_id"
     t.string   "nickname"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
