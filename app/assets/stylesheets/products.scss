@@ -226,7 +226,9 @@ preview {
   }
     .preview-thumbnail.nav-tabs li img {
       max-width: 100%;
-      display: block; }
+      display: block;
+      border: 1px solid #ddd;
+    }
     .preview-thumbnail.nav-tabs li a {
       padding: 0;
       margin: 0; }
@@ -278,7 +280,7 @@ preview {
 
 .insurance {
   position: absolute;
-  bottom: -280px;
+  bottom: -200px;
 }
 
 form{
@@ -431,5 +433,16 @@ a:-webkit-any-link {
   h5 {
     margin-bottom: 30px;
     color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+$size: 28px;
+
+div.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+    margin-right: 15px;
   }
 }
