@@ -20,7 +20,7 @@
       <!-- End Search -->
     </div>
     <div class="header-center">
-      <a href="/">乐活生活馆</a>
+      <i class="fa fa-home fa-2x"></i><a href="/">乐活生活馆</a>
     </div>
     <div class="header-right pull-right">
       <ul class="nav navbar-nav navbar-right">
@@ -100,7 +100,7 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <img src="https://ww3.sinaimg.cn/large/006tKfTcgy1fcvnb5gilcj31kw11mkjp.jpg">
+              <img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fcw13kez9rj31kw11z1l3.jpg">
               <div class="carousel-caption">美丽新视界</div>
             </div>
             <div class="item">
@@ -161,11 +161,58 @@
 </div>-->
 
 
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+<div class="row" id="hot-products">
+<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+  <div class="module-name decorative">
+    <i></i><span>精选商品</span><i></i>
+  </div>
 <div id="pins" class="transitions-enabled">
-  <% Product.all.each do |product| %>
-    <div  class="box panel panel-default">
+  <% Product.all.limit(6).sort_by{|product| -product.fans.count}.each do |product| %>
+    <div class="box panel panel-default" style="padding:0px;">
+      <%= link_to product_path(product) do %>
+        <% if product.photos.present? %>
+          <%= image_tag(product.photos[0].image.url) %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+        <% end %>
+      <% end %>
+      <div class="panel-body">
+        <div class="fig">
+          <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
+          <p class="actions">
+            <span class="price">￥<%= product.price %></span>
+            <span class="pull-right">
+              <% if product.quantity.present? && product.quantity > 0 %>
+                <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
+              <% else %>
+                已售馨
+              <% end %>
+            </span>
+            <span class="pull-right">
+              <% if user_signed_in? %>
+                <% if !current_user.is_fan_of?(product) %>
+                  <%= link_to favorite_product_path(product), method: :post do %>
+                    <i class="fa fa-heart-o fa-lg"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to unfavorite_product_path(product), method: :post do %>
+                    <i class="fa fa-heart fa-lg"></i>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <%= link_to favorite_product_path(product), method: :post do %>
+                  <i class="fa fa-heart-o fa-lg"></i>
+                <% end %>
+              <% end %>
+              <i class="sub"><%= product.fans.count %></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% Product.all.last(6).each do |product| %>
+    <div class="box panel panel-default" style="padding:0px;">
       <%= link_to product_path(product) do %>
         <% if product.photos.present? %>
           <%= image_tag(product.photos[0].image.url) %>
@@ -209,169 +256,15 @@
     </div>
   <% end %>
 </div>
+
 </div>
 </div>
-<!-- <div class="container-fluid" id="hot-products">
-  <div class="row">
-    <div class="module-name decorative">
-      <i></i><span>人气商品</span><i></i>
-    </div>
-
-    <% Product.all.limit(6).sort_by{|product| -product.fans.count}.each do |product| %>
-    <div class=" col-md-4 col-xs-6 box">
-      <div class="image">
-        <%= link_to product_path(product) do %>
-          <% if product.photos.present? %>
-            <%= image_tag(product.photos[0].image.url) %>
-          <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="fig">
-        <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
-        <p class="actions">
-          <span class="price">￥<%= product.price %></span>
-          <span class="pull-right">
-            <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
-            <% else %>
-              已售馨
-            <% end %>
-          </span>
-          <span class="pull-right">
-            <% if user_signed_in? %>
-              <% if !current_user.is_fan_of?(product) %>
-                <%= link_to favorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart-o fa-lg"></i>
-                <% end %>
-              <% else %>
-                <%= link_to unfavorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart fa-lg"></i>
-                <% end %>
-              <% end %>
-            <% else %>
-              <%= link_to favorite_product_path(product), method: :post do %>
-                <i class="fa fa-heart-o fa-lg"></i>
-              <% end %>
-            <% end %>
-            <i class="sub"><%= product.fans.count %></i>
-          </span>
-        </p>
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div> -->
-
-<!-- End of hot-products -->
-
-
-
-<!-- specific-products -->
-
-<!-- <div class="container-fluid" id="specific-products">
-  <div class="row">
-    <div class="module-name decorative">
-      <i></i><span>精选商品</span><i></i>
-    </div>
-
-    <% Product.all.last(6).each do |product| %>
-    <div class=" col-md-4 col-xs-6 box">
-      <div class="image">
-        <%= link_to product_path(product) do %>
-          <% if product.photos.present? %>
-            <%= image_tag(product.photos[0].image.url) %>
-          <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="fig">
-        <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
-        <p class="actions">
-          <span class="price">￥<%= product.price %></span>
-          <span class="pull-right">
-            <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
-            <% else %>
-              已售馨
-            <% end %>
-          </span>
-          <span class="pull-right">
-            <% if user_signed_in? %>
-              <% if !current_user.is_fan_of?(product) %>
-                <%= link_to favorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart-o fa-lg"></i>
-                <% end %>
-              <% else %>
-                <%= link_to unfavorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart fa-lg"></i>
-                <% end %>
-              <% end %>
-            <% else %>
-              <%= link_to favorite_product_path(product), method: :post do %>
-                <i class="fa fa-heart-o fa-lg"></i>
-              <% end %>
-            <% end %>
-            <i class="sub"><%= product.fans.count %></i>
-          </span>
-        </p>
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div> -->
-
-<!-- End of specific-products -->
 
 
 <!-- Footer -->
 
-<!-- <div class="footer">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-      <div class="col-md-4">
-        <div class="footer-chunk">
-          <h4>关于产品</h4>
-          <ul>
-            <% Category.all.each do |category| %>
-              <li>
-                <%= link_to(category.name, products_path(category: category.name)) %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="footer-chunk">
-          <h4>关于我们</h4>
-          <ul>
-            <li>理念：乐活 Love Home</li>
-            <li>ROR爱好者</li>
-            <li>拥有挑剔的眼光</li>
-            <li>设计者：陈慧娟</li>
-            <li>设计者：刘慧玲</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="footer-chunk">
-          <h4>售后服务</h4>
-          <ul>
-            <li>24小时热线服务</li>
-            <li>热线咨询：15995693717</li>
-            <li>邮箱咨询：megy.chen203@gmail.com</li>
-            <li>帮助</li>
-            <li>意见</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <div class="footer ">
+
+<div class="footer" style="border-top:1px solid #e6e6e6;">
   <div class="copyright">
     <div class="design">
       <span><a href="https://github.com" target="_blank">Github仓库</a></span>  <span><a href="#">关于我们</a></span>  <span><a href="#">联系我们</a></span>

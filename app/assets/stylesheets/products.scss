@@ -439,10 +439,15 @@ a:-webkit-any-link {
 $size: 28px;
 
 div.social-share-button {
+  margin-top: 15px;
   .ssb-icon {
     background-size: $size $size;
     height: $size;
     width: $size;
     margin-right: 15px;
   }
+}
+
+#pins .box {
+  display: inline-block;
 }

@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require masonry/jquery.imagesloaded
 //= require masonry/jquery.masonry
 //= require turbolinks
 //= require bootstrap-sprockets
