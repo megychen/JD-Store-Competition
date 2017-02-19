@@ -12,11 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require masonry/jquery.imagesloaded
+//= require masonry/jquery.masonry
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .
+
+$(function(){
+    // var $box = $('.box');
+    // $box.hide();
+    var $pins = $('#pins');
+    $pins.imagesLoaded(function(){
+      // $box.fadeIn();
+      $pins.masonry({
+        itemSelector : '.box',
+        isFitWidth: true,
+      });
+    });
+  });
+
 
 $(".hover").mouseleave(
   function () {
