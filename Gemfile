@@ -46,6 +46,7 @@ gem 'figaro'
 gem 'ratyrate'
 gem 'fog-aws'
 gem 'masonry-rails'
+gem 'social-share-button'
 
 
 group :development, :test do
