@@ -16,6 +16,8 @@
 //= require bootstrap-sprockets
 //= require jquery.raty
 //= require ratyrate
+//= require social-share-button
+//= require social-share-button/wechat
 //= require_tree .
 
 $(".hover").mouseleave(

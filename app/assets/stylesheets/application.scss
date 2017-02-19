@@ -14,11 +14,13 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= require social-share-button
  */
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+ @import "social-share-button";
  @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
 
 
@@ -581,7 +583,7 @@ div.fig {
   display: inline-block;
   margin: 0;
   vertical-align: middle;
-  line-height: 30px;
+  line-height: 20px;
 }
 
 .btn {
