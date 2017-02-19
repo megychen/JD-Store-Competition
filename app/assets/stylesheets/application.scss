@@ -922,6 +922,16 @@ section.awSlider .carousel{
 	box-shadow: 0 0 15px rgba(1,1,1,.5);
 }
 
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
+  width: 45px;
+  height: 45px;
+  margin-top: -10px;
+  font-size: 14px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding-top: 13px;
+}
+
 section.awSlider{
   margin:0 auto;
   padding:0;
