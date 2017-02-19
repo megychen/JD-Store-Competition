@@ -27,6 +27,8 @@
 /* Carousel effect */
 
 .carousel {
+  margin-left: -10px;
+  margin-right: -10px;
   margin-bottom: 20px;
 }
 .carousel-inner {
@@ -44,7 +46,30 @@
 
 /*  End of Carousel */
 
+.products-1 .filter {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
 
+.products-1 .filter span {
+  margin-right: 20px;
+  .products-1 .filter span a .fa {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  .products-1 .filter span a:hover {
+    text-decoration: none;
+  }
+}
+
+
+.products-1 .box {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
 
 
 .proposal-product {
@@ -213,8 +238,9 @@ preview {
   overflow: hidden;
   padding-top: 15px;
 }
-  .tab-content img {
-
+  .tab-content #tab_default_1 img {
+    width: 100%;
+    height: 500px;
     -webkit-animation-name: opacity;
             animation-name: opacity;
     -webkit-animation-duration: .3s;
@@ -242,7 +268,7 @@ preview {
 
 
 .price span {
-  color: #e15336;
+  color: #e44f47;
 }
 
 
@@ -383,4 +409,27 @@ a:-webkit-any-link {
   border: 0;
   border-top: 1px solid #eee;
   padding: 15px 0;
+}
+
+
+/* favorite page  */
+
+.fav-index {
+  margin-bottom: 30px;
+
+  h5 {
+    margin-bottom: 30px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* search page  */
+
+.search-page {
+  margin-bottom: 30px;
+
+  h5 {
+    margin-bottom: 30px;
+    color: rgba(0, 0, 0, 0.7);
+  }
 }

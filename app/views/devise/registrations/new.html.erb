@@ -1,5 +1,5 @@
 <div style="margin-top:120px;margin-bottom:30px;line-height:275%;">
-    <h1 class="text-center", style="color:rgb(62,146,190);">用户注册</h1>
+    <h1 class="text-center", style="color:#b6dfde;">用户注册</h1>
 </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
@@ -7,25 +7,25 @@
 
 <div class="form-group">
     <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
-        <%= f.email_field :email, autofocus: true , class: "form-control" , :style => "border: solid 1px white;", placeholder: "Email Address"%>
+        <%= f.email_field :email, label: "邮箱", autofocus: true , class: "form-control" , :style => "border: solid 1px white;", placeholder: "Email Address"%>
     </div>
 </div>
 
 <div class="form-group">
     <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"%>
+        <%= f.password_field :password, label: "密码", autocomplete: "off", class: "form-control", placeholder: "Password"%>
     </div>
 </div>
 
 <div class="form-group">
     <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password Confirmation"%>
+        <%= f.password_field :password_confirmation, label: "密码确认",autocomplete: "off", class: "form-control", placeholder: "Password Confirmation"%>
     </div>
 </div>
 
 <div class="form-group">
   <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
-      <%= f.submit "注册", class: "btn btn-primary",:style => "border: none;color:white;width:100%;background-color:rgb(62,146,190);border-radius:50px;" %>
+      <%= f.submit "注册", class: "btn btn-primary",:style => "border: none;color:white;width:100%;background-color:#b6dfde;border-radius:50px;" %>
   </div>
 </div>
 
