@@ -16,5 +16,5 @@ class User < ApplicationRecord
   def is_fan_of?(group)
     favorite_products.include?(group)
   end
-  
+  ratyrate_rater
 end

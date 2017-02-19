@@ -43,6 +43,7 @@ gem 'paperclip'
 gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'figaro'
+gem 'ratyrate'
 gem 'fog-aws'
 gem 'masonry-rails'
 

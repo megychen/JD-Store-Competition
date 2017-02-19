@@ -173,14 +173,14 @@
 
 <script>
   $('.star-rating').raty({
-	  path: '/assets/',
+	  path: '/ratyrate/',
 		readOnly: true,
 		score: function() {
 			return $(this).attr('data-score');
 		}
 	 });
 	$('#star-rating').raty({
-		path: '/assets/',
+		path: '/ratyrate/',
 		scoreName: 'review[rating]'
 		});
 </script>
