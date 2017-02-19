@@ -25,6 +25,36 @@ $(".hover").mouseleave(
 );
 
 
+
+
 /* carousel effect  */
 
 $('.carousel').carousel()
+
+/* scroll effect  */
+(function ($) {
+  $(document).ready(function(){
+    $('.index').hide();
+    $(function () {
+        $(window).scroll(function () {
+
+            if ($(this).scrollTop() > 1000) {
+                $('.index').fadeIn();
+            } else {
+                $('.index').fadeOut();
+            }
+        });
+    });
+
+    $(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.animated').fadeOut();
+            } else {
+                $('.animated').fadeIn();
+            }
+        });
+    });
+
+});
+  }(jQuery));

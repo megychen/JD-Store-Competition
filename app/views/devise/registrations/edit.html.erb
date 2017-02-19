@@ -1,5 +1,5 @@
 <div class="col-md-4 col-md-offset-4 edit-profile">
-  <h2 class="text-center", style="color:rgb(62,146,190);">编辑账户</h2>
+  <h2 class="text-center", style="color:#b6dfde;">编辑账户</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
@@ -25,7 +25,7 @@
 
   <h3>删除账户</h3>
 
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>体验不好? <%= link_to "删除账户", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
   <%= link_to "返回", :back %>
 </div>
