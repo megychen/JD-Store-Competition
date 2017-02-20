@@ -47,7 +47,6 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.category_id = params[:category_id]
     if params[:photos] != nil
-
       @product.photos.destroy_all
       params[:photos]['image'].each do |a|
         @picture = @product.photos.create(:image => a)
