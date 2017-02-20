@@ -40,7 +40,7 @@
 
 
  body {
-   font-family: 'cwTeXHei', sans-serif;
+  //  font-family: 'cwTeXHei', sans-serif;
    background-color: #f5f5f5;
  }
 
@@ -769,12 +769,13 @@ ul.subheader-content {
   a:hover  {
     text-decoration: none;
     border-bottom: 2px solid #72dfad;
-    color: rgba(0, 0, 0, 0.5);
+    color: #72dfad;
   }
 }
 
 .subheader ul li.active a {
   border-bottom: 2px solid #72dfad;
+  color:  #72dfad;
 }
 
 @media screen and (max-width: 786px) {
