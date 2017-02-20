@@ -52,11 +52,11 @@
           <div class="col-md-2" style="padding-left:0;padding-right:0;" >
             <% if user_signed_in? %>
              <% if !current_user.is_fan_of?(@product) %>
-               <%= link_to favorite_product_path(@product), :class => "like btn btn-default", style: "border-color:#72dfad ", method: :post do %>
-                 <i class="fa fa-heart-o fa-lg", style="color:#72dfad;"></i>
+               <%= link_to favorite_product_path(@product), :class => "like btn btn-default", style: "border-color:#72dfad;background-color:#72dfad; ", method: :post do %>
+                 <i class="fa fa-heart fa-lg", style="border-color:#fff;color:#fff;"></i>
                <% end %>
              <% else %>
-               <%= link_to unfavorite_product_path(@product), :class => "like btn btn-default",style: "border-color:#72dfad ", method: :post do %>
+               <%= link_to unfavorite_product_path(@product), :class => "like btn btn-default",style: "border-color:#72dfad; ", method: :post do %>
                  <i class="fa fa-heart fa-lg", style="color:#72dfad;"></i>
                <% end %>
              <% end %>
