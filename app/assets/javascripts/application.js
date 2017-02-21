@@ -101,3 +101,5 @@ $(".hover").mouseleave(
 Philips ambilight tv
 Üzerine gleince duruyor slide
 */
+
+$('#star-rating img').eq(0).trigger('click')
