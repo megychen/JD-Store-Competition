@@ -1,48 +1,7 @@
 <div class="products-1">
-  <h3 class="introduction">新视野-新世界</h3>
-  <h4 class="introduction-sub">自由自在，演绎完美</h4>
+  <h3 class="introduction">给你的水加一种</h3>
+  <h4 class="introduction-sub">甜度</h4>
   <hr>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <%= image_tag "https://ww1.sinaimg.cn/large/006tKfTcgy1fcw0l8cmjwj31kw11xe82.jpg" %>
-        <div class="carousel-caption">
-          <h3>乐活生活馆</h3>
-        </div>
-      </div>
-
-      <div class="item">
-        <%= image_tag "https://ww1.sinaimg.cn/large/006tKfTcgy1fctww1i4kvj31kw11u4qp.jpg" %>
-        <div class="carousel-caption">
-          <h3>乐活生活馆</h3>
-        </div>
-      </div>
-
-      <div class="item">
-        <%= image_tag "https://ww2.sinaimg.cn/large/006tKfTcgy1fctwzsgsznj31kw11xb2a.jpg" %>
-        <div class="carousel-caption">
-          <h3>乐活生活馆</h3>
-        </div>
-      </div>
-
-      <div class="item">
-        <%= image_tag "https://ww1.sinaimg.cn/large/006tKfTcgy1fctwyupae0j31kw161e83.jpg" %>
-        <div class="carousel-caption">
-          <h3>乐活生活馆</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end carousel -->
 
   <div class="filter">
     <span><%= link_to("价钱", products_path(:order => "by_price"), style: "color: rgba(0, 0, 0, 0.5);") %><i class="fa fa-arrow-down" style="color: rgba(0, 0, 0, 0.3);"></i></span>
