@@ -1,13 +1,5 @@
 <!--- Header section  -->
 <header class="main-header">
-  <!-- <div class="header-slogan" >
-    <h3>给你的水加一份甜度  |  </h3>
-    <% if !current_user %>
-      <%= link_to("马上注册", new_user_registration_path, class: "btn btn-sm btn-border-white") %>
-    <% else %>
-    <h3>终于等到你</h3>
-    <% end %>
-  </div> -->
   <div class="header-inner">
     <div class="header-left pull-left">
       <!-- Search area -->
@@ -32,7 +24,7 @@
         <% if !current_user %>
           <li>
             <div class="log-in">
-              <%= link_to("登录", new_user_session_path, class: "btn btn-sm header-user-item") %>
+              <%= link_to("登录", new_user_session_path, class: "btn btn-xs header-user-item") %>
             </div>
           </li>
         <% else %>
@@ -94,43 +86,27 @@
           <ol class="carousel-indicators">
             <li data-target=".carousel" data-slide-to="0" class="active"></li>
             <li data-target=".carousel" data-slide-to="1"></li>
-            <li data-target=".carousel" data-slide-to="2"></li>
-            <li data-target=".carousel" data-slide-to="3"></li>
           </ol>
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
               <img src="https://ww2.sinaimg.cn/large/006tNbRwly1fcygx0oeylj31kw0dmape.jpg">
-              <div class="carousel-caption">
+              <div class="carousel-caption" >
                 <h3 style="margin-top:30px;">给你的水加一份</h3>
                 <h1 style="color:rgb(211,122,130);margin-top:30px;">甜度</h1>
                 <br />
-                <%= link_to("马上注册", new_user_registration_path,  class: "btn", style: "background-color:rgb(211,122,130);margin-top:10px;border-color:rgb(211,122,130);color:#fff; ") %>
+                <%= link_to("马上注册", new_user_registration_path,  class: "btn", style: "background-color:rgb(211,122,130);margin-top:15px;border-color:rgb(211,122,130);color:#fff; ") %>
               </div>
             </div>
             <div class="item">
-              <img src="https://ww2.sinaimg.cn/large/006tNc79gy1fcyiskk0h4j31kw11v7wh.jpg">
-              <div class="carousel-caption">
-                美丽新视界
+              <img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcz1nxmozgj31kw0dl1dz.jpg">
+              <div class="carousel-caption" style="left:15%;right:0">
+                <h3 style="margin-top:30px;">10款融入</h3>
+                <h1 style="color:rgb(250,190,100);margin-top:30px;">创意设计的</h1>
+                <h3 style="margin-top:30px;">俏皮杯子</h3>
                 <br />
-                <%= link_to("立即购买", root_path, class: "btn", style: "background-color:#72dfad;margin-top:180px;border-color:#72dfad;color:#fff; ") %>
-              </div>
-            </div>
-            <div class="item">
-              <img src="https://ww1.sinaimg.cn/large/006tNc79gy1fcyit36753j31kw11vnaw.jpg">
-              <div class="carousel-caption">
-                美丽新视界
-                <br />
-                <%= link_to("立即购买", root_path, class: "btn", style: "background-color:#72dfad;margin-top:180px;border-color:#72dfad;color:#fff; ") %>
-              </div>
-            </div>
-            <div class="item">
-              <img src="https://ww2.sinaimg.cn/large/006tNc79ly1fcyiubzz5ej31kw11xnpd.jpg">
-              <div class="carousel-caption">
-                美丽新视界
-                <br />
-                <%= link_to("立即购买", root_path, class: "btn", style: "background-color:#72dfad;margin-top:180px;border-color:#72dfad;color:#fff; ") %>
+                <%= link_to("了解更多", info_path, class: "btn", style: "background-color:rgb(250,190,100);margin-top:0;border-color:rgb(250,190,100);color:#fff; ", method: :get) %>
               </div>
             </div>
           </div>
@@ -177,55 +153,33 @@
       <div class="fig" >
 
         <p class="actions">
-          <!-- <span class="price">￥<%= product.price %></span>
-          <span class="pull-right"> -->
             <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to("去看看", product_path(product), class: "add-to-cart btn", style: "height:26px;font-size:11px;background-color:#72dfad;", :method => :get) %>
+              <%= link_to("去看看", product_path(product), class: "add-to-cart btn", style: "height:26px;font-size:11px;background-color:rgb(245,190,126);", :method => :get) %>
             <% else %>
               已售馨
             <% end %>
 
             <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to("加入购物车", add_to_cart_product_path(product), class: "add-to-cart btn ", style: "height:26px;font-size:11px;border-color:#72dfad;background-color:#fff;color:#72dfad; ", :method => :post) %>
+              <%= link_to("加入购物车", add_to_cart_product_path(product), class: "add-to-cart btn ", style: "height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:#fff;color:rgb(245,190,126); ", :method => :post) %>
             <% else %>
               已销售一空，无法购买
             <% end %>
 
             <% if user_signed_in? %>
               <% if !current_user.is_fan_of?(product) %>
-                <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:#72dfad;background-color:#72dfad; ", method: :post do %>
+                <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:rgb(245,190,126); ", method: :post do %>
                   <i class="fa fa-heart fa-lg", style="border-color:#fff;color:#fff;"></i>
                 <% end %>
               <% else %>
-                <%= link_to unfavorite_product_path(product), :class => "like btn btn-default",style: "height:26px;font-size:11px;border-color:#72dfad; ", method: :post do %>
-                  <i class="fa fa-heart fa-lg", style="color:#72dfad;"></i>
+                <%= link_to unfavorite_product_path(product), :class => "like btn btn-default",style: "height:26px;font-size:11px;border-color:rgb(245,190,126); ", method: :post do %>
+                  <i class="fa fa-heart fa-lg", style="color:rgb(245,190,126);"></i>
                 <% end %>
               <% end %>
             <% else %>
-              <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:#72dfad ", method: :post do %>
-                <i class="fa fa-heart-o fa-lg", style="color:#72dfad;"></i>
+              <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:rgb(245,190,126)", method: :post do %>
+                <i class="fa fa-heart-o fa-lg", style="color:rgb(245,190,126);"></i>
               <% end %>
             <% end %>
-
-          <!-- </span> -->
-          <!-- <span class="pull-right"> -->
-            <!-- <% if user_signed_in? %>
-              <% if !current_user.is_fan_of?(product) %>
-                <%= link_to favorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart-o fa-lg"></i>
-                <% end %>
-              <% else %>
-                <%= link_to unfavorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart fa-lg"></i>
-                <% end %>
-              <% end %>
-            <% else %>
-              <%= link_to favorite_product_path(product), method: :post do %>
-                <i class="fa fa-heart-o fa-lg"></i>
-              <% end %>
-            <% end %>
-            <i class="sub"><%= product.fans.count %></i> -->
-          <!-- </span> -->
         </p>
         <p  style="font-size:12px;text-align:left;padding-left:12px;margin-top:10px;"><%= product.title %></p>
         <p  style="font-size:12px;text-align:left;padding-left:12px;color:#999">￥ <%= product.price %> </p>
@@ -244,12 +198,12 @@
   <i></i><span>关于我们</span><i></i>
 </div>
 
-<div class="col-md-10 col-md-offset-1 about-us">
+<div class="about-us">
   <div class="row">
     <div class="col-md-6 chunk">
       <img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fcz3ulcn5mj31kw11xu0z.jpg", class="img-circle">
     </div>
-    <div class="col-md-6 chunk chunk-1">
+    <div class="col-md-6 chunk chunk-1" style="color: rgba(0,0,0,0.4);">
       <p>茶叶们泡着澡</p>
       <p>聊着天</p>
       <p>说生活越来越没有意思了</p>
@@ -258,7 +212,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 chunk chunk-1">
+    <div class="col-md-6 chunk chunk-1" style="color: rgba(0,0,0,0.4);">
       <p>我们每天都喝水</p>
       <p>但我们</p>
       <p>从来没有想过</p>
@@ -281,7 +235,7 @@
 <div class="footer" style="border-top:1px solid #e6e6e6;">
   <div class="copyright">
     <div class="design">
-      <span><a href="https://github.com" target="_blank">Github仓库</a></span>  <span><a href="#">关于我们</a></span>  <span><a href="#">联系我们</a></span>
+      <span><a href="https://github.com/megychen/JD-Store-Competition" target="_blank">Github仓库</a></span>  <span><%= link_to '关于我们', about_path %></span>  <span><%= link_to '联系我们', about_path %></span>
       <p>@Copyright 2017 乐活生活馆网站是由<span>陈慧娟</span> 和 <span>刘慧玲</span>共同打造</p>
       <p>再次感谢您的光临</p>
     </div>
@@ -289,8 +243,3 @@
 </div>
 
 <!-- End of Footer -->
-
-<!-- index -->
-<div class="index">
-  <a href="#main-header"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-</div>

@@ -385,7 +385,7 @@ a:-webkit-any-link {
   color: #a6a6a6;
 }
 .tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
-  border-bottom: 4px solid #72dfad;
+  border-bottom: 4px solid rgb(245,190,126);
 }
 .tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
   border: 0;
@@ -399,7 +399,7 @@ a:-webkit-any-link {
   margin-top: 0px;
 }
 .tabbable-line > .nav-tabs > li.active {
-  border-bottom: 4px solid #72dfad;
+  border-bottom: 4px solid rgb(245,190,126);
   position: relative;
 }
 .tabbable-line > .nav-tabs > li.active:hover {
@@ -421,7 +421,7 @@ a:-webkit-any-link {
 }
 .tabbable-line > .nav-tabs>li.active>a, .tabbable-line > .nav-tabs>li.active>a:focus, .tabbable-line > .nav-tabs>li.active>a:hover {
 border: 0;
-border-bottom: 0px solid #72dfad;
+border-bottom: 0px solid rgb(245,190,126);
 }
 
 /* favorite page  */

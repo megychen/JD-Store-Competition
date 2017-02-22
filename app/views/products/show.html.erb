@@ -36,14 +36,14 @@
       <p class="delivery">运费: <span>￥10</span></p>
       <div class="action" style="margin-top:30px;">
         <% if @product.quantity.present? && @product.quantity > 0 %>
-          <%= link_to("立即购买", add_to_cart_product_path(@product), class: "add-to-cart btn btn-block ", style: "background-color:#72dfad;margin-bottom:10px; ", :method => :post) %>
+          <%= link_to("立即购买", add_to_cart_product_path(@product), class: "add-to-cart btn btn-block ", style: "background-color:rgb(245,190,126);margin-bottom:10px; ", :method => :post) %>
         <% else %>
           已销售一空，无法购买
         <% end %>
         <div class="row">
           <div class="col-md-10" style="padding-left:0;padding-right:10px;" >
             <% if @product.quantity.present? && @product.quantity > 0 %>
-              <%= link_to("加入购物车", add_to_cart_product_path(@product), class: "add-to-cart btn btn-block ", style: "border-color:#72dfad;background-color:#fff;color:#72dfad; ", :method => :post) %>
+              <%= link_to("加入购物车", add_to_cart_product_path(@product), class: "add-to-cart btn btn-block ", style: "border-color:rgb(245,190,126);background-color:#fff;color:rgb(245,190,126); ", :method => :post) %>
             <% else %>
               已销售一空，无法购买
             <% end %>
@@ -52,17 +52,17 @@
           <div class="col-md-2" style="padding-left:0;padding-right:0;" >
             <% if user_signed_in? %>
              <% if !current_user.is_fan_of?(@product) %>
-               <%= link_to favorite_product_path(@product), :class => "like btn btn-default", style: "border-color:#72dfad;background-color:#72dfad; ", method: :post do %>
+               <%= link_to favorite_product_path(@product), :class => "like btn btn-default", style: "border-color:rgb(245,190,126);background-color:rgb(245,190,126); ", method: :post do %>
                  <i class="fa fa-heart fa-lg", style="border-color:#fff;color:#fff;"></i>
                <% end %>
              <% else %>
-               <%= link_to unfavorite_product_path(@product), :class => "like btn btn-default",style: "border-color:#72dfad; ", method: :post do %>
-                 <i class="fa fa-heart fa-lg", style="color:#72dfad;"></i>
+               <%= link_to unfavorite_product_path(@product), :class => "like btn btn-default",style: "border-color:rgb(245,190,126); ", method: :post do %>
+                 <i class="fa fa-heart fa-lg", style="color:rgb(245,190,126);"></i>
                <% end %>
              <% end %>
            <% else %>
-             <%= link_to favorite_product_path(@product), :class => "like btn btn-default", style: "border-color:#72dfad ", method: :post do %>
-               <i class="fa fa-heart-o fa-lg", style="color:#72dfad;"></i>
+             <%= link_to favorite_product_path(@product), :class => "like btn btn-default", style: "border-color:rgb(245,190,126)", method: :post do %>
+               <i class="fa fa-heart-o fa-lg", style="color:rgb(245,190,126);"></i>
              <% end %>
            <% end %>
 
@@ -149,82 +149,79 @@
    <div class="col-md-4 proposal-product">
      <h4 style="padding-top:10px;">为您推荐的宝贝</h4>
      <hr />
-     <% Product.all.last(3).each do |product| %>
-       <div class="image">
-         <%= link_to product_path(product) do %>
-           <% if product.photos.present? %>
-             <%= image_tag(product.photos[0].image.url) %>
-           <% else %>
-             <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-           <% end %>
-         <% end %>
-       </div>
+     <div id="pins" class="transitions-enabled">
+       <% Product.limit(4).sort_by{|product| -product.fans.count}.each do |product| %>
+         <div class="box " style="padding:0px;">
 
-       <div class="fig">
-         <p class="actions">
-
-           <% if product.quantity.present? && product.quantity > 0 %>
-             <%= link_to("去看看", product_path(product), class: "add-to-cart btn", style: "height:26px;font-size:11px;background-color:#72dfad;", :method => :get) %>
-           <% else %>
-             已售馨
-           <% end %>
-
-           <% if product.quantity.present? && product.quantity > 0 %>
-             <%= link_to("加入购物车", add_to_cart_product_path(product), class: "add-to-cart btn ", style: "height:26px;font-size:11px;border-color:#72dfad;background-color:#fff;color:#72dfad; ", :method => :post) %>
-           <% else %>
-             已销售一空，无法购买
-           <% end %>
-
-           <% if user_signed_in? %>
-             <% if !current_user.is_fan_of?(product) %>
-               <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:#72dfad;background-color:#72dfad; ", method: :post do %>
-                 <i class="fa fa-heart fa-lg", style="border-color:#fff;color:#fff;"></i>
-               <% end %>
+           <%= link_to product_path(product) do %>
+             <% if product.photos.present? %>
+               <%= image_tag(product.photos[0].image.url) %>
              <% else %>
-               <%= link_to unfavorite_product_path(product), :class => "like btn btn-default",style: "height:26px;font-size:11px;border-color:#72dfad; ", method: :post do %>
-                 <i class="fa fa-heart fa-lg", style="color:#72dfad;"></i>
-               <% end %>
-             <% end %>
-           <% else %>
-             <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:#72dfad ", method: :post do %>
-               <i class="fa fa-heart-o fa-lg", style="color:#72dfad;"></i>
+               <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
              <% end %>
            <% end %>
 
+           <div class="fig" >
 
-           <!-- <span class="price">￥<%= product.price %></span>
-           <span class="pull-right">
-             <% if product.quantity.present? && product.quantity > 0 %>
-               <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
-             <% else %>
-               已售馨
-             <% end %>
-           </span>
-           <span class="pull-right">
-             <% if user_signed_in? %>
-               <% if !current_user.is_fan_of?(product) %>
-                 <%= link_to favorite_product_path(product), method: :post do %>
-                   <i class="fa fa-heart-o fa-lg"></i>
+             <p class="actions">
+               <!-- <span class="price">￥<%= product.price %></span>
+               <span class="pull-right"> -->
+                 <% if product.quantity.present? && product.quantity > 0 %>
+                   <%= link_to("去看看", product_path(product), class: "add-to-cart btn", style: "height:26px;font-size:11px;background-color:rgb(245,190,126);", :method => :get) %>
+                 <% else %>
+                   已售馨
                  <% end %>
-               <% else %>
-                 <%= link_to unfavorite_product_path(product), method: :post do %>
-                   <i class="fa fa-heart fa-lg"></i>
+
+                 <% if product.quantity.present? && product.quantity > 0 %>
+                   <%= link_to("加入购物车", add_to_cart_product_path(product), class: "add-to-cart btn ", style: "height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:#fff;color:rgb(245,190,126); ", :method => :post) %>
+                 <% else %>
+                   已销售一空，无法购买
                  <% end %>
-               <% end %>
-             <% else %>
-               <%= link_to favorite_product_path(product), method: :post do %>
-                 <i class="fa fa-heart-o fa-lg"></i>
-               <% end %>
-             <% end %>
-             <i class="sub"><%= product.fans.count %></i>
-           </span> -->
-         </p>
 
-         <p  style="font-size:12px;text-align:left;padding-left:65px;margin-top:10px;"><%= product.title %></p>
-         <p  style="font-size:12px;text-align:left;padding-left:65px;color:#999">￥ <%= product.price %> </p>
+                 <% if user_signed_in? %>
+                   <% if !current_user.is_fan_of?(product) %>
+                     <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:rgb(245,190,126); ", method: :post do %>
+                       <i class="fa fa-heart fa-lg", style="border-color:#fff;color:#fff;"></i>
+                     <% end %>
+                   <% else %>
+                     <%= link_to unfavorite_product_path(product), :class => "like btn btn-default",style: "height:26px;font-size:11px;border-color:rgb(245,190,126); ", method: :post do %>
+                       <i class="fa fa-heart fa-lg", style="color:rgb(245,190,126);"></i>
+                     <% end %>
+                   <% end %>
+                 <% else %>
+                   <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:rgb(245,190,126)", method: :post do %>
+                     <i class="fa fa-heart-o fa-lg", style="color:rgb(245,190,126);"></i>
+                   <% end %>
+                 <% end %>
 
-       </div>
-     <% end %>
+               <!-- </span> -->
+               <!-- <span class="pull-right"> -->
+                 <!-- <% if user_signed_in? %>
+                   <% if !current_user.is_fan_of?(product) %>
+                     <%= link_to favorite_product_path(product), method: :post do %>
+                       <i class="fa fa-heart-o fa-lg"></i>
+                     <% end %>
+                   <% else %>
+                     <%= link_to unfavorite_product_path(product), method: :post do %>
+                       <i class="fa fa-heart fa-lg"></i>
+                     <% end %>
+                   <% end %>
+                 <% else %>
+                   <%= link_to favorite_product_path(product), method: :post do %>
+                     <i class="fa fa-heart-o fa-lg"></i>
+                   <% end %>
+                 <% end %>
+                 <i class="sub"><%= product.fans.count %></i> -->
+               <!-- </span> -->
+             </p>
+             <p  style="font-size:12px;text-align:left;padding-left:12px;margin-top:10px;"><%= product.title %></p>
+             <p  style="font-size:12px;text-align:left;padding-left:12px;color:#999">￥ <%= product.price %> </p>
+           </div>
+
+
+         </div>
+       <% end %>
+     </div>
    </div>
 
 </div>
