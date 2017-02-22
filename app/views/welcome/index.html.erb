@@ -1,13 +1,5 @@
 <!--- Header section  -->
 <header class="main-header">
-  <!-- <div class="header-slogan" >
-    <h3>给你的水加一份甜度  |  </h3>
-    <% if !current_user %>
-      <%= link_to("马上注册", new_user_registration_path, class: "btn btn-sm btn-border-white") %>
-    <% else %>
-    <h3>终于等到你</h3>
-    <% end %>
-  </div> -->
   <div class="header-inner">
     <div class="header-left pull-left">
       <!-- Search area -->
@@ -32,7 +24,7 @@
         <% if !current_user %>
           <li>
             <div class="log-in">
-              <%= link_to("登录", new_user_session_path, class: "btn btn-sm header-user-item") %>
+              <%= link_to("登录", new_user_session_path, class: "btn btn-xs header-user-item") %>
             </div>
           </li>
         <% else %>
@@ -79,6 +71,7 @@
       <% end %>
     </ul>
   </div>
+  <%= render "common/flashes" %>
 </header>
 <!-- End of header section -->
 
@@ -93,8 +86,6 @@
           <ol class="carousel-indicators">
             <li data-target=".carousel" data-slide-to="0" class="active"></li>
             <li data-target=".carousel" data-slide-to="1"></li>
-            <!-- <li data-target=".carousel" data-slide-to="2"></li> -->
-            <!-- <li data-target=".carousel" data-slide-to="3"></li> -->
           </ol>
 
           <!-- Wrapper for slides -->
@@ -105,7 +96,7 @@
                 <h3 style="margin-top:30px;">给你的水加一份</h3>
                 <h1 style="color:rgb(211,122,130);margin-top:30px;">甜度</h1>
                 <br />
-                <%= link_to("马上注册", new_user_registration_path,  class: "btn", style: "background-color:rgb(211,122,130);margin-top:10px;border-color:rgb(211,122,130);color:#fff; ") %>
+                <%= link_to("马上注册", new_user_registration_path,  class: "btn", style: "background-color:rgb(211,122,130);margin-top:15px;border-color:rgb(211,122,130);color:#fff; ") %>
               </div>
             </div>
             <div class="item">
@@ -118,22 +109,6 @@
                 <%= link_to("了解更多", info_path, class: "btn", style: "background-color:rgb(250,190,100);margin-top:0;border-color:rgb(250,190,100);color:#fff; ", method: :get) %>
               </div>
             </div>
-            <!-- <div class="item">
-              <img src="https://ww3.sinaimg.cn/large/006tKfTcgy1fcvmsqwheuj31kw11xe84.jpg">
-              <div class="carousel-caption">
-                美丽新视界
-                <br />
-                <%= link_to("立即购买", root_path, class: "btn", style: "background-color:#72dfad;margin-top:180px;border-color:#72dfad;color:#fff; ") %>
-              </div>
-            </div>
-            <div class="item">
-              <img src="https://ww3.sinaimg.cn/large/006tKfTcgy1fcvmvn12j7j31kw11x7wi.jpg">
-              <div class="carousel-caption">
-                美丽新视界
-                <br />
-                <%= link_to("立即购买", root_path, class: "btn", style: "background-color:#72dfad;margin-top:180px;border-color:#72dfad;color:#fff; ") %>
-              </div>
-            </div> -->
           </div>
 
           <!-- Controls -->
@@ -158,31 +133,8 @@
 
 <!-- hot-products -->
 
-<!--<div class="tag-container1">
-    <div class="tag">
-
-        <div class="tag-side tag-1-side">
-            <div class="tag-1-top"></div>
-            <div class="tag-text tag-1-text">
-                发现美好事物
-                <div class="rule-shape rule-red">&starf;</div>
-            </div>
-        </div>
-
-        <div class="tag-side tag-1-side is-back">
-            <div class="tag-1-top"></div>
-            <div class="tag-text tag-1-text">
-                乐活<br />生活馆
-                <div class="rule-shape">&starf;</div>
-            </div>
-        </div>
-
-    </div>
-</div>-->
-
-
 <div class="row" id="hot-products">
-<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+<div class="col-md-10 col-md-offset-1">
   <div class="module-name decorative">
     <i></i><span>精选商品</span><i></i>
   </div>
@@ -201,8 +153,6 @@
       <div class="fig" >
 
         <p class="actions">
-          <!-- <span class="price">￥<%= product.price %></span>
-          <span class="pull-right"> -->
             <% if product.quantity.present? && product.quantity > 0 %>
               <%= link_to("去看看", product_path(product), class: "add-to-cart btn", style: "height:26px;font-size:11px;background-color:rgb(245,190,126);", :method => :get) %>
             <% else %>
@@ -230,26 +180,6 @@
                 <i class="fa fa-heart-o fa-lg", style="color:rgb(245,190,126);"></i>
               <% end %>
             <% end %>
-
-          <!-- </span> -->
-          <!-- <span class="pull-right"> -->
-            <!-- <% if user_signed_in? %>
-              <% if !current_user.is_fan_of?(product) %>
-                <%= link_to favorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart-o fa-lg"></i>
-                <% end %>
-              <% else %>
-                <%= link_to unfavorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart fa-lg"></i>
-                <% end %>
-              <% end %>
-            <% else %>
-              <%= link_to favorite_product_path(product), method: :post do %>
-                <i class="fa fa-heart-o fa-lg"></i>
-              <% end %>
-            <% end %>
-            <i class="sub"><%= product.fans.count %></i> -->
-          <!-- </span> -->
         </p>
         <p  style="font-size:12px;text-align:left;padding-left:12px;margin-top:10px;"><%= product.title %></p>
         <p  style="font-size:12px;text-align:left;padding-left:12px;color:#999">￥ <%= product.price %> </p>
@@ -263,6 +193,41 @@
 </div>
 </div>
 
+<!-- About Us -->
+<div class="module-name decorative">
+  <i></i><span>关于我们</span><i></i>
+</div>
+
+<div class="about-us">
+  <div class="row">
+    <div class="col-md-6 chunk">
+      <img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fcz3ulcn5mj31kw11xu0z.jpg", class="img-circle">
+    </div>
+    <div class="col-md-6 chunk chunk-1" style="color: rgba(0,0,0,0.4);">
+      <p>茶叶们泡着澡</p>
+      <p>聊着天</p>
+      <p>说生活越来越没有意思了</p>
+      <p>主人随便把我们丢进去</p>
+      <p>也不问问我们愿不愿意</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 chunk chunk-1" style="color: rgba(0,0,0,0.4);">
+      <p>我们每天都喝水</p>
+      <p>但我们</p>
+      <p>从来没有想过</p>
+      <p>喝水也可以成为</p>
+      <p>一件很享受的事情</p>
+    </div>
+    <div class="col-md-6 chunk">
+      <img src="https://ww1.sinaimg.cn/large/006tKfTcgy1fcz3o9u98qj31kw11xb1z.jpg", class="img-circle">
+    </div>
+  </div>
+</div>
+
+
+<!-- End of about us -->
+
 
 <!-- Footer -->
 
@@ -270,7 +235,7 @@
 <div class="footer" style="border-top:1px solid #e6e6e6;">
   <div class="copyright">
     <div class="design">
-      <span><a href="https://github.com" target="_blank">Github仓库</a></span>  <span><a href="#">关于我们</a></span>  <span><a href="#">联系我们</a></span>
+      <span><a href="https://github.com/megychen/JD-Store-Competition" target="_blank">Github仓库</a></span>  <span><%= link_to '关于我们', about_path %></span>  <span><%= link_to '联系我们', about_path %></span>
       <p>@Copyright 2017 乐活生活馆网站是由<span>陈慧娟</span> 和 <span>刘慧玲</span>共同打造</p>
       <p>再次感谢您的光临</p>
     </div>
@@ -278,8 +243,3 @@
 </div>
 
 <!-- End of Footer -->
-
-<!-- index -->
-<div class="index">
-  <a href="#main-header"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-</div>
