@@ -141,7 +141,6 @@
 <div id="pins" class="transitions-enabled">
   <% Product.limit(12).sort_by{|product| -product.fans.count}.each do |product| %>
     <div class="box " style="padding:0px;">
-
       <%= link_to product_path(product) do %>
         <% if product.photos.present? %>
           <%= image_tag(product.photos[0].image.url) %>
