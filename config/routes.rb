@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
+  get '/info' => 'info#index'
   devise_for :users
   resources :products do
     member do
