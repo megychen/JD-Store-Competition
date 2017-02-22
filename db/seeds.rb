@@ -8,8 +8,7 @@
 
 User.create(email: "test@gmail.com", password: "123456", password_confirmation: "123456", is_admin: false)
 User.create(email: "admin@gmail.com", password: "123456", password_confirmation: "123456", is_admin: true)
-Category.create(name: "卧室")
-Category.create(name: "浴室")
-Category.create(name: "客厅")
-Category.create(name: "厨房")
-Category.create(name: "其他")
+Category.create(name: "玻璃杯")
+Category.create(name: "马克杯")
+Category.create(name: "陶瓷杯")
+Category.create(name: "保温杯")
