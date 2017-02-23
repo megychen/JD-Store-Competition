@@ -2,14 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* favorites#index */
-.favorites-index {
-  margin-top: 55px;
-  h2 {
+/* favorite page  */
+
+.fav-index {
+  margin-bottom: 30px;
+
+  h5 {
     margin-bottom: 30px;
-    margin-left: 10px;
-  }
-  .col-md-6 {
-    margin-bottom: 30px !important;
+    color: rgba(0, 0, 0, 0.7);
   }
 }

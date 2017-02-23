@@ -1,10 +1,10 @@
 <div class="products-1 fav-index" >
-  <h3 class="introduction">新视野-新世界</h3>
-  <h4 class="introduction-sub">自由自在，演绎完美</h4>
+  <h3 class="introduction">给你的水加一种</h3>
+  <h4 class="introduction-sub">甜度</h4>
   <hr>
   <div class="row">
-
       <h5>您已收藏<%= @products.count %>个宝贝~</h5>
+
       <% @products.each do |product| %>
       <div class=" col-md-4 col-xs-6 box">
         <div class="image">
@@ -18,38 +18,39 @@
         </div>
 
         <div class="fig">
-          <p class="title"><%= link_to(product.title, product_path(product)) %> </p>
           <p class="actions">
-            <span class="price">￥<%= product.price %></span>
-            <span class="pull-right">
-              <% if product.quantity.present? && product.quantity > 0 %>
-                <%= link_to(content_tag(:i, "", class: "fa fa-shopping-cart fa-lg"), add_to_cart_product_path(product), :method => :post) %>
-              <% else %>
-                已售馨
-              <% end %>
-            </span>
-            <span class="pull-right">
-              <% if user_signed_in? %>
-                <% if !current_user.is_fan_of?(product) %>
-                  <%= link_to favorite_product_path(product), method: :post do %>
-                    <i class="fa fa-heart-o fa-lg"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to unfavorite_product_path(product), method: :post do %>
-                    <i class="fa fa-heart fa-lg"></i>
-                  <% end %>
+            <% if product.quantity.present? && product.quantity > 0 %>
+              <%= link_to("去看看", product_path(product), class: "see btn", :method => :get) %>
+            <% else %>
+              已售馨
+            <% end %>
+
+            <% if product.quantity.present? && product.quantity > 0 %>
+              <%= link_to("加入购物车", add_to_cart_product_path(product), class: "add-to-cart btn ", :method => :post) %>
+            <% else %>
+              已销售一空，无法购买
+            <% end %>
+
+            <% if user_signed_in? %>
+              <% if !current_user.is_fan_of?(product) %>
+                <%= link_to favorite_product_path(product), :class => "like btn btn-default", method: :post do %>
+                  <i class="fa fa-heart fa-lg"></i>
                 <% end %>
               <% else %>
-                <%= link_to favorite_product_path(product), method: :post do %>
-                  <i class="fa fa-heart-o fa-lg"></i>
+                <%= link_to unfavorite_product_path(product), :class => "unlike btn btn-default",method: :post do %>
+                  <i class="fa fa-heart fa-lg"></i>
                 <% end %>
               <% end %>
-              <i class="sub"><%= product.fans.count %></i>
-            </span>
+            <% else %>
+              <%= link_to favorite_product_path(product), :class => "like btn btn-default",  method: :post do %>
+                <i class="fa fa-heart-o fa-lg"></i>
+              <% end %>
+            <% end %>
           </p>
+          <p class="title" style="padding-left:72px;"><%= product.title %></p>
+          <p class="price" style="padding-left:72px;">￥ <%= product.price %> </p>
         </div>
       </div>
-      <% end %>
-
+    <% end %>
   </div>
 </div>

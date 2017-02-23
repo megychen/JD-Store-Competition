@@ -34,15 +34,16 @@
 
  /* common flash */
 
- div.alert {
-   margin-top: 0px;
-   margin-bottom: 0px;
-   border-radius: 0;
- }
+div.alert {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-radius: 0;
+}
 
  /* common navbar */
 
 .navbar-default {
+  margin-bottom: 0;
   background: rgb(88,75,79);
     .navbar-header {
       margin-left: 9%;
@@ -105,7 +106,8 @@
 /* EDIT PROFILR */
 
 .edit-profile {
-  margin-top: 100px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 /* Media Quries */
@@ -117,4 +119,14 @@
   .navbar-right .login{
     margin-right: 0;
   }
+}
+
+/* common/footer*/
+
+.page-footer {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid #D3D3D3;
 }
