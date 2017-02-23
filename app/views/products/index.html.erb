@@ -5,9 +5,9 @@
   <hr>
 
   <div class="filter">
-    <span><%= link_to("价钱", products_path(:order => "by_price"), style: "color: rgba(0, 0, 0, 0.5);") %><i class="fa fa-arrow-down" style="color: rgba(0, 0, 0, 0.3);"></i></span>
-    <span><%= link_to("喜欢数量", products_path(:order => "by_fans"), style: "color: rgba(0, 0, 0, 0.5);") %><i class="fa fa-arrow-down" style="color: rgba(0, 0, 0, 0.3);"></i></span>
-    <span><%= link_to("上架时间", products_path, style: "color: rgba(0, 0, 0, 0.5);") %><i class="fa fa-arrow-down" style="color: rgba(0, 0, 0, 0.3);"></i></span>
+    <span><%= link_to("价钱", products_path(:order => "by_price")) %><i class="fa fa-arrow-down" ></i></span>
+    <span><%= link_to("喜欢数量", products_path(:order => "by_fans")) %><i class="fa fa-arrow-down"></i></span>
+    <span><%= link_to("上架时间", products_path) %><i class="fa fa-arrow-down"></i></span>
   </div>
 
   <div class="row">
