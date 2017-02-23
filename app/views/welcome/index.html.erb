@@ -90,23 +90,23 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active">
+            <div class="item active" id="item1">
               <img src="https://ww2.sinaimg.cn/large/006tNbRwly1fcygx0oeylj31kw0dmape.jpg">
               <div class="carousel-caption" >
-                <h3 style="margin-top:30px;">给你的水加一份</h3>
-                <h1 style="color:rgb(211,122,130);margin-top:30px;">甜度</h1>
+                <h3>给你的水加一份</h3>
+                <h1>甜度</h1>
                 <br />
-                <%= link_to("马上注册", new_user_registration_path,  class: "btn", style: "background-color:rgb(211,122,130);margin-top:15px;border-color:rgb(211,122,130);color:#fff; ") %>
+                <%= link_to("马上注册", new_user_registration_path,  class: "btn") %>
               </div>
             </div>
-            <div class="item">
+            <div class="item" id="item2">
               <img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcz1nxmozgj31kw0dl1dz.jpg">
-              <div class="carousel-caption" style="left:15%;right:0">
-                <h3 style="margin-top:30px;">10款融入</h3>
-                <h1 style="color:rgb(250,190,100);margin-top:30px;">创意设计的</h1>
-                <h3 style="margin-top:30px;">俏皮杯子</h3>
+              <div class="carousel-caption">
+                <h3>10款融入</h3>
+                <h1>创意设计的</h1>
+                <h3 >俏皮杯子</h3>
                 <br />
-                <%= link_to("了解更多", info_path, class: "btn", style: "background-color:rgb(250,190,100);margin-top:0;border-color:rgb(250,190,100);color:#fff; ", method: :get) %>
+                <%= link_to("了解更多", info_path, class: "btn ",  method: :get) %>
               </div>
             </div>
           </div>
@@ -134,63 +134,60 @@
 <!-- hot-products -->
 
 <div class="row" id="hot-products">
-<div class="col-md-10 col-md-offset-1">
-  <div class="module-name decorative">
-    <i></i><span>精选商品</span><i></i>
-  </div>
-<div id="pins" class="transitions-enabled">
-  <% Product.limit(12).sort_by{|product| -product.fans.count}.each do |product| %>
-    <div class="box " style="padding:0px;">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="module-name decorative">
+      <i></i><span>精选商品</span><i></i>
+    </div>
+    <div id="pins" class="transitions-enabled">
+      <% Product.limit(12).sort_by{|product| -product.fans.count}.each do |product| %>
+      <div class="box ">
 
-      <%= link_to product_path(product) do %>
-        <% if product.photos.present? %>
-          <%= image_tag(product.photos[0].image.url) %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+        <%= link_to product_path(product) do %>
+          <% if product.photos.present? %>
+            <%= image_tag(product.photos[0].image.url) %>
+          <% else %>
+            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+          <% end %>
         <% end %>
-      <% end %>
 
-      <div class="fig" >
-
-        <p class="actions">
+        <div class="fig" >
+          <p class="actions">
             <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to("去看看", product_path(product), class: "add-to-cart btn", style: "height:26px;font-size:11px;background-color:rgb(245,190,126);", :method => :get) %>
+              <%= link_to("去看看", product_path(product), class: "see btn",  :method => :get) %>
             <% else %>
               已售馨
             <% end %>
 
             <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to("加入购物车", add_to_cart_product_path(product), class: "add-to-cart btn ", style: "height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:#fff;color:rgb(245,190,126); ", :method => :post) %>
+              <%= link_to("加入购物车", add_to_cart_product_path(product), class: "add-to-cart btn ",:method => :post) %>
             <% else %>
               已销售一空，无法购买
             <% end %>
 
             <% if user_signed_in? %>
               <% if !current_user.is_fan_of?(product) %>
-                <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:rgb(245,190,126); ", method: :post do %>
-                  <i class="fa fa-heart fa-lg", style="border-color:#fff;color:#fff;"></i>
+                <%= link_to favorite_product_path(product), :class => "like btn btn-default",  method: :post do %>
+                  <i class="fa fa-heart fa-lg"></i>
                 <% end %>
               <% else %>
-                <%= link_to unfavorite_product_path(product), :class => "like btn btn-default",style: "height:26px;font-size:11px;border-color:rgb(245,190,126); ", method: :post do %>
-                  <i class="fa fa-heart fa-lg", style="color:rgb(245,190,126);"></i>
+                <%= link_to unfavorite_product_path(product), :class => "unlike btn btn-default",method: :post do %>
+                  <i class="fa fa-heart fa-lg"></i>
                 <% end %>
               <% end %>
             <% else %>
-              <%= link_to favorite_product_path(product), :class => "like btn btn-default", style: "height:26px;font-size:11px;border-color:rgb(245,190,126)", method: :post do %>
-                <i class="fa fa-heart-o fa-lg", style="color:rgb(245,190,126);"></i>
+              <%= link_to favorite_product_path(product), :class => "like btn btn-default",  method: :post do %>
+                <i class="fa fa-heart fa-lg"></i>
               <% end %>
             <% end %>
-        </p>
-        <p  style="font-size:12px;text-align:left;padding-left:12px;margin-top:10px;"><%= product.title %></p>
-        <p  style="font-size:12px;text-align:left;padding-left:12px;color:#999">￥ <%= product.price %> </p>
+          </p>
+          <p  class="title" ><%= product.title %></p>
+          <p  class="price" >￥ <%= product.price %> </p>
+        </div>
+
       </div>
-
-
+      <% end %>
     </div>
-  <% end %>
-</div>
-
-</div>
+  </div>
 </div>
 
 <!-- About Us -->
@@ -232,11 +229,11 @@
 <!-- Footer -->
 
 
-<div class="footer" style="border-top:1px solid #e6e6e6;">
+<div class="footer">
   <div class="copyright">
     <div class="design">
       <span><a href="https://github.com/megychen/JD-Store-Competition" target="_blank">Github仓库</a></span>  <span><%= link_to '关于我们', about_path %></span>  <span><%= link_to '联系我们', about_path %></span>
-      <p>@Copyright 2017 乐活生活馆网站是由<span>陈慧娟</span> 和 <span>刘慧玲</span>共同打造</p>
+      <p>@Copyright 2017 品味伴客 由<span>陈慧娟</span> 和 <span>刘慧玲</span>共同打造</p>
       <p>再次感谢您的光临</p>
     </div>
   </div>
