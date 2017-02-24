@@ -41,6 +41,16 @@ class ProductsController < ApplicationController
     redirect_to :back
   end
 
+  def instant_buy
+    @product = Product.find(params[:id])
+    if !current_cart.products.include?(@product)
+      current_cart.add_product_to_cart(@product)
+    else
+      flash[:warning] = "你的购物车已有此物品，快去结账吧"
+    end
+    redirect_to carts_path
+  end
+
   def search
     if @query_string.present?
       @products = search_params

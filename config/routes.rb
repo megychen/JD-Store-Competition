@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post :add_to_cart
       post :favorite
       post :unfavorite
+      post :instant_buy
     end
     collection do
       get :search
