@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   get '/info' => 'info#index'
-  devise_for :users
+  devise_for :users, controllers: {sessions: "sessions"}
   resources :products do
     member do
       post :add_to_cart
