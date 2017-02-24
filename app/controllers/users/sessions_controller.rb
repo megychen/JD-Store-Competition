@@ -23,14 +23,13 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   class SessionsController < Devise::SessionsController
+    after_action :prepare_intercom_shutdown, only: [:destroy]
 
-  after_action :prepare_intercom_shutdown, only: [:destroy]
+    # Your logic here
 
-  # Your logic here
-
-  protected
-  def prepare_intercom_shutdown
-    IntercomRails::ShutdownHelper.prepare_intercom_shutdown(session)
+    protected
+    def prepare_intercom_shutdown
+      IntercomRails::ShutdownHelper.prepare_intercom_shutdown(session)
+    end
   end
-end
 end
