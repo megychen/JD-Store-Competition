@@ -113,5 +113,6 @@ IntercomRails.config do |config|
   # config.hide_default_launcher = true
   config.include_for_logged_out_users = true
   config.user.current = Proc.new { current_user_object }
+  config.session_duration = 5 * 60 * 10000
   config.api_secret = Rails.application.secrets.intercom_secure_mode_secret_key
 end
