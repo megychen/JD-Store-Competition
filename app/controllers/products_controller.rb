@@ -3,19 +3,18 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:favorite, :unfavorite]
 
   def index
-    if params[:category].blank?
-      #@products = Product.all.recent
+    if params[:category].present?
+      @category_id = Category.find_by(name: params[:category]).id
+      @products = Product.where(category_id: @category_id).recent
+    else
       @products = case params[:order]
       when 'by_price'
           Product.all.order("price DESC")
-        when 'by_fans'
-          Product.all.sort_by {|product| product.fans.count}.reverse
-        else
-          Product.all.recent
+      when 'by_fans'
+        Product.all.sort_by {|product| product.fans.count}.reverse
+      else
+        Product.all.recent
       end
-    else
-      @category_id = Category.find_by(name: params[:category]).id
-      @products = Product.where(category_id: @category_id).recent
     end
   end
 
@@ -27,7 +26,6 @@ class ProductsController < ApplicationController
     if @reviews.blank?
       @avg_review = 0
     else
-      #@avg_review = @reviews.average(:rating).round(2)
       @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0
     end
   end
@@ -43,6 +41,16 @@ class ProductsController < ApplicationController
     redirect_to :back
   end
 
+  def instant_buy
+    @product = Product.find(params[:id])
+    if !current_cart.products.include?(@product)
+      current_cart.add_product_to_cart(@product)
+    else
+      flash[:warning] = "你的购物车已有此物品，快去结账吧"
+    end
+    redirect_to carts_path
+  end
+
   def search
     if @query_string.present?
       @products = search_params
@@ -52,7 +60,7 @@ class ProductsController < ApplicationController
   def favorite
 		@product = Product.find(params[:id])
 		current_user.favorite_products << @product
-      flash[:notice] = "您已收藏宝贝"
+    flash[:notice] = "您已收藏宝贝"
 		redirect_to :back
 	end
 

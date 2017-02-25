@@ -1,5 +1,5 @@
 <div class="show-page">
-
+  <%= render "common/flashes" %>
   <div class="pull-right show-option">
     <%= @product.fans.count %>人已收藏 | <%= link_to("返回首页", url_for(:back)) %>
   </div>
@@ -39,7 +39,7 @@
       <p class="delivery">运费: <span>￥10</span></p>
       <div class="action">
         <% if @product.quantity.present? && @product.quantity > 0 %>
-          <%= link_to("立即购买", add_to_cart_product_path(@product), class: "buy btn btn-block ",  :method => :post) %>
+          <%= link_to("立即购买", instant_buy_product_path(@product), class: "buy btn btn-block ",  :method => :post) %>
         <% else %>
           已销售一空，无法购买
         <% end %>
@@ -74,7 +74,7 @@
       <div class="insurance">
         <hr>
         <p class="text-center">
-          乐活生活馆担保 | 七天无理由退货 | 正品保证 | 独立品牌
+          品味伴客担保 | 七天无理由退货 | 正品保证 | 独立品牌
         </p>
       </div>
       <%= social_share_button_tag(@product.title) %>

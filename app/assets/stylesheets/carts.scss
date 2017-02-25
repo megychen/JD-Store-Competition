@@ -6,3 +6,81 @@
   margin-top: 30px;
   margin-bottom: 40px;
 }
+
+
+
+.column-labels, .product {
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+
+label.product-image, label.product-price, label.product-quantity, label.product-removal, label.product-line-price  {
+  height: 45px;
+  line-height: 45px;
+}
+
+.product-image, .product-price, .product-quantity, .product-removal, .product-line-price {
+  width: 19%;
+  text-align: center;
+  height: 113px;
+  color: #aaa;
+  display: inline-block;
+}
+
+.product-image img {
+  height: 90%;
+}
+
+.product-price, .product-line-price {
+  line-height: 113px;
+}
+
+.edit_cart_item {
+  margin-top: 45px;
+}
+
+.product .product-quantity input {
+  width: 45px;
+  background-color: #fff;
+  border-radius: 5px;
+  color: #f5be7e;
+}
+
+.product-quantity select {
+  height: 30px;
+  background-color: #fff;
+  color: #f5be7e;
+  border-radius: 0;
+}
+
+.product-removal .remove-product {
+  margin-top: 45px;
+  background-color: #f5be7e;
+  a {
+    color: #fff;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.product-removal .remove-product:hover {
+  background-color: #f4d0a6;
+}
+
+.totals-item {
+  margin-top: 20px;
+  color: #aaa;
+}
+
+a.checkout-btn {
+  padding: 10px 25px;
+  background-color: #d86a6a;
+  color: #fff;
+}
+
+a.checkout-btn:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #d38585;
+}
