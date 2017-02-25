@@ -1,11 +1,13 @@
 class WelcomeController < ApplicationController
   layout "welcome"
   after_action :intercom_shutdown, only: [:index]
-  
-  def index     
+
+  def index
+    @products = Product.all.sort_by{|product| -product.fans.count}
+    @products = @products.first(12)
   end
 
-  def about    
+  def about
   end
 
   protected
