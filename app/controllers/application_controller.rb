@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
     @current_cart ||= find_cart
   end
 
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+  end
 
   private
 
@@ -25,10 +28,6 @@ class ApplicationController < ActionController::Base
     end
     session[:cart_id] = cart.id
     return cart
-  end
-
-  def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || stored_location_for(resource) || root_url
   end
 
   protected
