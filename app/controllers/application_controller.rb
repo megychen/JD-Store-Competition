@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  after_action :intercom_shutdown, only: [:index]
 
   def admin_required
     unless current_user.admin?
@@ -16,10 +15,6 @@ class ApplicationController < ActionController::Base
     @current_cart ||= find_cart
   end
 
-  protected
-  def intercom_shutdown
-    IntercomRails::ShutdownHelper.intercom_shutdown(session, cookies)
-  end
 
   private
 
