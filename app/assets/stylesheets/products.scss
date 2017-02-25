@@ -151,6 +151,9 @@ font-size: 18px;
       -ms-flex-positive: 1;
           flex-grow: 1;
   height: 500px;
+  img{
+    width: 100%;
+  }
 }
 
 .preview-thumbnail.nav-tabs {
