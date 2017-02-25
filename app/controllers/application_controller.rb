@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     @current_cart ||= find_cart
   end
 
+
   private
 
   def find_cart
