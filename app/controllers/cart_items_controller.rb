@@ -23,6 +23,7 @@ class CartItemsController < ApplicationController
     redirect_to carts_path
   end
 
+
   private
 
   def cart_item_params
