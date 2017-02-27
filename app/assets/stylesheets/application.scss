@@ -40,6 +40,19 @@ div.alert {
   border-radius: 0;
 }
 
+#error_explanation {
+  h2 {
+    font-size: 16px;
+    color: #bd9b9f;
+    font-weight: 300;
+  }
+  ul {
+    list-style: none;
+    margin-left: -38px !important;
+    color: #bd9b9f;
+  }
+}
+
  /* common navbar */
 
 .navbar-default {

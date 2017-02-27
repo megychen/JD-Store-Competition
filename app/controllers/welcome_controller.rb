@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
   def index
     @products = Product.all.sort_by{|product| -product.fans.count}
-    @products = @products.first(12)
+    @products = @products.first(9)
   end
 
   def about
