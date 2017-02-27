@@ -142,14 +142,14 @@
       <% @products.each do |product| %>
       <div class="box ">
 
-        <%= link_to product_path(product) do %>
-          <% if product.photos.present? %>
-            <%= image_tag(product.photos[0].image.url) %>
-          <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+          <%= link_to product_path(product) do %>
+            <% if product.photos.present? %>
+              <%= image_tag(product.photos[0].image.url) %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+            <% end %>
           <% end %>
-        <% end %>
-
+    <%= link_to product_path(product) do %>
         <div class="fig" >
           <p class="actions">
             <% if product.quantity.present? && product.quantity > 0 %>
@@ -183,7 +183,7 @@
           <p  class="title" ><%= product.title %></p>
           <p  class="price" >￥ <%= product.price %> </p>
         </div>
-
+<% end %>
       </div>
       <% end %>
     </div>
