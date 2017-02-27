@@ -422,7 +422,7 @@ section.awSlider .carousel .carousel-indicators{
 
 /* customer-feedback */
 
-#customer-feedback {
+#service {
   .feedback-1 img, .feedback-2 img, .feedback-3 img {
     width: 100%;
     height: auto;
@@ -448,7 +448,8 @@ section.awSlider .carousel .carousel-indicators{
     background-color: rgb(211,122,130);
     color: #fff;
     border-color: #fff;
-    padding-top: 10px;
+    padding-top: 8px;
+    width: 150px;
   }
 }
 
