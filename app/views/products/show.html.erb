@@ -1,8 +1,7 @@
 <div class="show-page">
-
-  <div class="pull-right show-option">
-    <%= @product.fans.count %>人已收藏 | <%= link_to("返回首页", url_for(:back)) %>
-  </div>
+  <div class="show-option">
+     <%= link_to("全部商品", url_for(:back)) %> >   <%= link_to(@product.category.name, products_path(category: @product.category.name)) %>
+   </div>
   <!-- Start of product card -->
   <div class="row card">
     <!-- Start of left card -->
@@ -30,13 +29,17 @@
       <h3 class="product-title"><%= @product.title %></h3>
       <div class="rating">
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <span><%= "#{@reviews.length} 人已评论" %></span>
       </div>
-      <p class="product-description"><%= simple_format(@product.description) %></p>
-      <p class="price">价格: <span>￥<%= @product.price %></span></p>
-      <p class="quantity">数量 : <span><%= @product.quantity %></span> </p>
-      <p class="sizes">规格: <span><%= @product.size %></span></p>
-      <p class="delivery">运费: <span>￥10</span></p>
+      <div class="price-service">
+        <p class="price">售价 <span class="rmb">￥</span><span class="price"><%= @product.price %></span></p>
+        <p class="service">服务 <span class="service-detail">7天无忧退货 | 48小时快速退款 | 正品保证</span></p>
+      </div>
+      <div class="quantity-size">
+        <p class="quantity">库存 <span class="quantity"><%= @product.quantity %></span> </p>
+        <p class="sizes">规格 <span class="sizes"><%= @product.size %></span></p>
+        <p class="delivery">运费 <span class="delivery">￥10</span></p>
+      </div>
+
       <div class="action">
         <% if @product.quantity.present? && @product.quantity > 0 %>
           <%= link_to("立即购买", instant_buy_product_path(@product), class: "buy btn btn-block ",  :method => :post) %>
@@ -70,14 +73,21 @@
           </div>
 
       </div>
-      <br>
-      <div class="insurance">
-        <hr>
-        <p class="text-center">
-          品味伴客担保 | 七天无理由退货 | 正品保证 | 独立品牌
-        </p>
+
+      <div class="row share">
+        <hr />
+        <div class="col-md-4">
+            <p> 收藏人气（<%= @product.fans.count %>） </p>
+        </div>
+        <div class="col-md-3 ">
+            <p><i class="fa fa-share-alt" aria-hidden="true"></i> 分享 </p>
+        </div>
+        <div class="col-md-4" style="margin-left:-40px;">
+          <%= social_share_button_tag(@product.title) %>
+        </div>
+
+
       </div>
-      <%= social_share_button_tag(@product.title) %>
     </div>
     <!-- End of left card -->
   </div>
@@ -92,18 +102,44 @@
               <a href="#tab_default_1" data-toggle="tab">宝贝详情 </a>
             </li>
             <li>
-              <a href="#tab_default_2" data-toggle="tab">宝贝评价 </a>
+              <a href="#tab_default_2" data-toggle="tab">宝贝评价(<%= "#{@reviews.length}" %>) </a>
             </li>
           </ul>
         </div>
         <div class="tab-content">
           <div class="tab-pane active" id="tab_default_1">
              <p class="product-description"><%= @product.description %></p>
-             <% if @product.photos.present? %>
-               <% @product.photos.each do |p| %>
-                <%= image_tag p.image.url %><br />
-                <% end %>
-             <% end %>
+             <p class="product-description2 text-center">产品展示</p>
+             <%= image_tag(@product.photos[0].image.url) %>
+             <p class="product-description2 text-center">产品细节</p>
+             <div class="row">
+               <div class="col-md-6 product-show-detail">
+                 <%= image_tag(@product.photos[1].image.medium.url) %>
+               </div>
+               <div class="col-md-6 product-show-detail">
+                 <%= image_tag(@product.photos[2].image.medium.url) %>
+               </div>
+               <div class="col-md-6 product-show-detail">
+                 <%= image_tag(@product.photos[3].image.medium.url) %>
+               </div>
+               <div class="col-md-6 product-show-detail">
+                 <%= image_tag(@product.photos[4].image.medium.url) %>
+               </div>
+             </div>
+             <div class="faq">
+               <p class="faq-title text-center">常见问题</p>
+               <p class="question">使用什么快递发货？</p>
+               <p class="answer">严选默认使用顺丰快递发货，配送范围覆盖全国大部分地区（港澳台地区除外）。</p>
+               <p class="question">如何申请退货？</p>
+               <p class="answer">
+                 1.自收到商品之日起7日内，顾客可申请无忧退货，退款将原路返还，不同的银行处理时间不同，预计1-5个工作日到账；<br />
+                 2.退货流程：<br />
+                 确认收货-申请退货-客服审核通过-用户寄回商品-仓库签收验货-退款审核-退款完成；<br />
+                 3.因品味伴客产生的退货，如质量问题，退货邮费由品味伴客承担，退款完成后钱款将沿原渠道返还。因客户个人原因产生的退货，购买和寄回运费由客户个人承担。<br />
+               </p>
+               <p class="question">如何开具发票？</p>
+               <p class="answer">如需开具普通发票，请在下单时联系客服办理，我们将虽货物一起快递给您；</p>
+             </div>
           </div>
           <div class="tab-pane" id="tab_default_2">
             <%= simple_form_for([@product, @review]) do |f| %>

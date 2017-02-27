@@ -199,6 +199,55 @@ font-size: 18px;
 .product-title {
   margin-top: 0;
 }
+.rating{
+  margin-top: 20px;
+}
+.price-service{
+  // background-color: rgb(245,245,245);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
+  border-top: 1px dotted #dedede;
+  border-bottom: 1px dotted #dedede;
+  p.price{
+    span.rmb{
+      color: #d7282d;
+      margin-left: 20px;
+    }
+    span.price{
+      color: #d7282d;
+      font-size: 30px;
+    }
+  }
+  p.service{
+    span.service-detail{
+      margin-left: 20px;
+    }
+  }
+}
+.quantity-size{
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
+  p.quantity{
+    span.quantity{
+      margin-left: 20px;
+    }
+  }
+  p.sizes{
+    span.sizes{
+      margin-left: 20px;
+    }
+  }
+  p.delivery{
+    span.delivery{
+      margin-left: 20px;
+    }
+  }
+
+}
 
 a.btn:hover{
   opacity:0.5;
@@ -238,23 +287,31 @@ font-size: 18px;
     }
   }
 }
-
-
-.insurance p{
-  color:#999;
+.favor{
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
 }
 
-$size: 28px;
+.share{
+  color:#666;
+  margin-top:30px;
+  hr{
+    border-top: 1px dotted #dedede;
+    margin-right: 15px;
+  }
+}
+$size: 20px;
 
 div.social-share-button {
-  margin: 0 auto;
-  margin-top: 15px;
+  margin: 0;
+
   .ssb-icon {
     background-size: $size $size;
     height: $size;
     width: $size;
-    margin-right: 15px;
     border-radius: 50%;
+        margin-right:0px;
   }
 }
 
@@ -263,16 +320,65 @@ div.social-share-button {
 
 .show-page .col-md-8 {
   padding: 0;
+  p.product-description{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #666;
+    border-bottom: 1px dotted #dedede;
+  }
+  p.product-description2{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #666;
+    font-size: 15px;
+  }
+  img {
+    width: 100%;
+    -webkit-animation-name: opacity;
+            animation-name: opacity;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s;
+  }
+  p.faq-title{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #666;
+    font-size: 15px;
+  }
+  p.question{
+    color:#666;
+  }
+  p.answer{
+    color: #999;
+    margin-bottom: 30px;
+  }
+  .faq{
+    border-top: 1px dotted #dedede;
+    margin-top: 20px;
+  }
 }
 
-.tab-content #tab_default_1 img {
-  width: 100%;
-  height: 100%;
-  -webkit-animation-name: opacity;
-          animation-name: opacity;
-  -webkit-animation-duration: .3s;
-          animation-duration: .3s;
+.tab-content #tab_default_1 {
+
+  .product-show-detail{
+    border: 1px solid #dedede;
+    padding-left: 0px;
+    padding-right: 0px;
+    img {
+      width: 100%;
+      -webkit-animation-name: opacity;
+              animation-name: opacity;
+      -webkit-animation-duration: .3s;
+              animation-duration: .3s;
+    }
+  }
+
 }
+
+
+
+
+
 
 .tabs {
   background-color:#fff;
