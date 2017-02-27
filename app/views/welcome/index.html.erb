@@ -4,7 +4,7 @@
     <div class="header-left pull-left">
       <!-- Search area -->
       <%= form_tag search_products_path , :method => :get, :class => "form-search" do %>
-        <input type="text", class="search-input", name="q" value="<%= params[:q] %>" placeholder="产品、描述...">
+        <input type="text", class="search-input", name="q" value="<%= params[:q] %>" placeholder="请输入关键词搜索...">
         <button type="submit" class="search-icon">
           <span class="fa fa-search fa-lg"></span>
         </button>
@@ -62,7 +62,7 @@
   <div class="subheader animated">
     <ul class="subheader-content">
       <li class="active">
-        <%= link_to("所有商品", products_path) %>
+        <%#= link_to("所有商品", products_path) %>
       </li>
       <% Category.all.each do |category| %>
         <li>
@@ -96,7 +96,11 @@
                 <h3>给你的水加一份</h3>
                 <h1>甜度</h1>
                 <br />
-                <%= link_to("马上注册", new_user_registration_path,  class: "btn") %>
+                <% if !current_user %>
+                  <%= link_to("马上注册", new_user_registration_path,  class: "btn") %>
+                <% else %>
+                  <%= link_to(content_tag(:i, '马上行动', class: 'fa fa-hand-o-right'), products_path,  class: "btn") %>
+                <% end %>
               </div>
             </div>
             <div class="item" id="item2">
@@ -114,11 +118,11 @@
           <!-- Controls -->
           <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Geri</span>
+            <span class="sr-only">品味伴客</span>
           </a>
           <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">İleri</span>
+            <span class="sr-only">温暖一杯情</span>
           </a>
 
         </div>
@@ -129,14 +133,61 @@
 
 <!-- End of banner section -->
 
+<!-- our service and -->
+<div id="service" class="row">
+  <div class="module-name decorative">
+    <i></i><span>我们的服务</span><i></i>
+  </div>
+  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <div class="quote-box-1">
+          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p>
+          <p>生活总是忙碌的</p>
+          <p>常常向往一种通透明澈的简单</p>
+          <p><b>伴客玻璃杯</b></p>
+          <p>有着一起呵成的安适与自然</p>
+          <p>让你的世界剔透清明</p>
+          <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="quote-box-1">
+          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p>
+          <p>生活总是忙碌的</p>
+          <p>我们的心难免会着凉</p>
+          <p><b>伴客保温杯</b></p>
+          <p>如冬日里可爱的太阳</p>
+          <p>让你的世界温暖如初</p>
+          <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="quote-box-1">
+          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p>
+          <p>生活总是忙碌的</p>
+          <p>都快忘记了我们的文化</p>
+          <p><b>伴客陶瓷杯</b></p>
+          <p>带你重温匠心手艺</p>
+          <p>静静享受旧时的美好</p>
+          <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- end of our service -->
+
 
 
 <!-- hot-products -->
 
 <div class="row" id="hot-products">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     <div class="module-name decorative">
-      <i></i><span>精选商品</span><i></i>
+      <i></i><span>人气商品推荐</span><i></i>
     </div>
     <div id="pins" class="transitions-enabled">
       <% @products.each do |product| %>
@@ -190,41 +241,108 @@
   </div>
 </div>
 
-<!-- About Us -->
-<div class="module-name decorative">
-  <i></i><span>关于我们</span><i></i>
-</div>
+<!-- end of hot products -->
 
-<div class="about-us">
-  <div class="row">
-    <div class="col-md-6 chunk">
-      <img src="https://ww4.sinaimg.cn/large/006tKfTcgy1fcz3ulcn5mj31kw11xu0z.jpg", class="img-circle">
+
+<!-- customer feedback -->
+
+<div id="customer-feedback" class="row">
+  <div class="module-name decorative">
+    <i></i><span>用户真实反馈</span><i></i>
+  </div>
+  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="feedback-1">
+      <div class="col-md-6 text-center">
+        <h4 class="feedback-info">
+          在伴客购买杯子<br><br>
+          绝对是我最棒的体验了<br><br>
+          清新的风格设计<br><br>
+          喝水时心情都会调起来<br><br>
+          <small>--顾客小萌</small>
+        </h4>
+      </div>
+      <div class="col-md-6 text-center">
+        <p>
+          <%= image_tag("https://ww1.sinaimg.cn/large/006y8lVagy1fd52z5xwfcj31kw11v7wh.jpg") %>
+        </p>
+      </div>
     </div>
-    <div class="col-md-6 chunk chunk-1" style="color: rgba(0,0,0,0.4);">
-      <p>茶叶们泡着澡</p>
-      <p>聊着天</p>
-      <p>说生活越来越没有意思了</p>
-      <p>主人随便把我们丢进去</p>
-      <p>也不问问我们愿不愿意</p>
+    <div class="feedback-2">
+      <div class="col-md-6 text-center">
+        <p>
+          <%= image_tag("https://ww2.sinaimg.cn/large/006y8lVagy1fd53dzuidsj31kw11o4qr.jpg") %>
+        </p>
+      </div>
+      <div class="col-md-6 text-center">
+        <h4 class="feedback-info">
+          自从买了伴客保温杯<br><br>
+          现在外出旅游<br><br>
+          带一壶水可以喝一整天<br><br>
+          而且保温效果更持久<br><br>
+          <small>--顾客强仔</small>
+        </h4>
+      </div>
+    </div>
+    <div class="feedback-3">
+      <div class="col-md-6 text-center">
+        <h4 class="feedback-info">
+          平时是个杯子控<br><br>
+          但每次要想找到自己喜欢的<br><br>
+          都要花上很久的时间去海淘<br><br>
+          很开心伴客解决了我的苦恼<br><br>
+          <small>--顾客晓琪</small>
+        </h4>
+      </div>
+      <div class="col-md-6 text-center">
+        <p>
+          <%= image_tag("https://ww2.sinaimg.cn/large/006y8lVagy1fd56lf9d25j31kw11x4qt.jpg") %>
+        </p>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6 chunk chunk-1" style="color: rgba(0,0,0,0.4);">
-      <p>我们每天都喝水</p>
-      <p>但我们</p>
-      <p>从来没有想过</p>
-      <p>喝水也可以成为</p>
-      <p>一件很享受的事情</p>
+</div>
+
+<!-- end of customer feedback -->
+
+<!-- call-to-action -->
+
+<div id="call-to-action" class="row">
+  <div class="text-center">
+    <%= link_to("马上购买", products_path, class: "btn btn-default btn-lg") %>
+  </div>
+</div>
+
+<!-- end of call-to-action -->
+
+<!-- question -->
+
+
+<div id="question" class="row">
+  <div class="module-name decorative">
+    <i></i><span>FAQ</span><i></i>
+  </div>
+  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+    <div class="col-md-3 col-sm-6">
+    <p class="sub-question"><b>问：</b>杯子属于易碎物品，在邮递的过程中怎么保证完好无损呢？</p>
+    <p class="answer"><b>答：</b>伴客统一采用顺丰快递配送，我们的每一个商品都会严格包装，防止在运输的过程中破碎</p>
     </div>
-    <div class="col-md-6 chunk">
-      <img src="https://ww1.sinaimg.cn/large/006tKfTcgy1fcz3o9u98qj31kw11xb1z.jpg", class="img-circle">
+    <div class="col-md-3 col-sm-6">
+    <p class="sub-question"><b>问：</b>对于杯子的质感，你们会有把控吗？</p>
+    <p class="answer"><b>答：</b>伴客的每一款杯子都是很有质感的，我们的宗旨就是改变用户喝水的体验，所以质感方面都是严格把控的哦</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <p class="sub-question"><b>问：</b>有的保温杯很有重量，不方便携带，而且保温效果不持久，你们有做改善吗？</p>
+      <p class="answer"><b>答：</b>伴客的每一款杯子，都追求的是轻巧、易携带，所以保温杯也是轻盈型的</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <p class="sub-question"><b>问：</b>很多人买杯子有时只是为了好看而已，你们的设计风格是怎样的？</p>
+      <p class="answer"><b>答：</b>伴客杯子的设计风格偏简易、清新范，重在给顾客一种简单的心情</p>
     </div>
   </div>
 </div>
 
 
-<!-- End of about us -->
-
+<!-- End of question -->
 
 <!-- Footer -->
 
