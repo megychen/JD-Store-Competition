@@ -3,10 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .checkout-page, .order-page {
-  margin-top: 30px;
+  padding-top: 80px;
   margin-bottom: 40px;
+  .col-md-6, .col-sm-8 {
+    background-color: #fff;
+    padding-bottom: 30px;
+    margin-top: 20px;
+  }
+  h4 {
+    color: #aaa;
+    font-weight: 300;
+  }
 }
-
 
 
 .column-labels, .product {
@@ -83,4 +91,12 @@ a.checkout-btn:hover {
   color: #fff;
   text-decoration: none;
   background-color: #d38585;
+}
+
+
+/* checkout-page */
+
+.checkout .btn-danger {
+  width: 150px;
+  border-radius: 0;
 }

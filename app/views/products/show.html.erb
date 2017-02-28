@@ -1,6 +1,8 @@
 <div class="show-page">
+  <%= render "common/flashes" %>
   <div class="show-option">
-     <%= link_to("全部商品", url_for(:back)) %> >   <%= link_to(@product.category.name, products_path(category: @product.category.name)) %>
+     <span>所有商品</span>  >   <%= link_to(@product.category.name, products_path(category: @product.category.name)) %>
+     <span class="pull-right"><%= link_to("返回", url_for(:back)) %></span>
    </div>
   <!-- Start of product card -->
   <div class="row card">
@@ -129,7 +131,7 @@
              <div class="faq">
                <p class="faq-title text-center">常见问题</p>
                <p class="question">使用什么快递发货？</p>
-               <p class="answer">严选默认使用顺丰快递发货，配送范围覆盖全国大部分地区（港澳台地区除外）。</p>
+               <p class="answer">伴客默认使用顺丰快递发货，配送范围覆盖全国大部分地区（港澳台地区除外）。</p>
                <p class="question">如何申请退货？</p>
                <p class="answer">
                  1.自收到商品之日起7日内，顾客可申请无忧退货，退款将原路返还，不同的银行处理时间不同，预计1-5个工作日到账；<br />

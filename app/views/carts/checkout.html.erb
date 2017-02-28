@@ -1,10 +1,10 @@
 <div class="row checkout-page">
   <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-    <h2 class="text-center">购物明细</h2>
+    <h2 class="text-center">商品详情</h2>
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th width="80%">商品明细</th>
+          <th width="80%">商品名称</th>
           <th>单价</th>
           <th>数量</th>
         </tr>
@@ -31,7 +31,7 @@
       </span>
     </div>
     <hr>
-    <h2 class="text-center">订单咨询</h2>
+    <h2 class="text-center">订单详情</h2>
     <div class="order-form">
       <%= simple_form_for @order do |f| %>
         <legend>订购人</legend>
@@ -48,8 +48,8 @@
         <div class="form-group col-lg-6">
           <%= f.input :shipping_address %>
         </div>
-        <div class="checkout">
-          <%= f.submit "生成订单", class: "btn btn-lg btn-danger pull-right", data: {disable_with: "Submitting..."} %>
+        <div class="checkout text-center">
+          <%= f.submit "生成订单", class: "btn btn-lg btn-danger", data: {disable_with: "Submitting..."} %>
         </div>
       <% end %>
     </div>
