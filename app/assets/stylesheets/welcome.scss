@@ -346,6 +346,9 @@ section.awSlider .carousel .carousel-indicators{
  	  	max-width: 100%;
  	  	height: auto;
  	  }
+    &:hover{
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.22);
+    }
  	}
  }
 
@@ -359,62 +362,49 @@ section.awSlider .carousel .carousel-indicators{
    box-sizing: border-box;
    position: absolute;
    width: 100%;
-   height: 100%;
-   padding-top:50%;
-   background: rgba(255, 255, 255, 0.4);
-   background: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* For Safari 5.1 to 6.0 */
-   background: -o-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* For Opera 11.1 to 12.0 */
-   background: -moz-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* For Firefox 3.6 to 15 */
-   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Standard syntax */
+   height:40px;
    cursor: pointer;
    text-align: center;
    font-size: 1.2em;
-   border-radius: 5px;
    transition: all 0.2s ease-out;
+   display: none
  }
 
- .fig{
- 	top: 100%;
- 	left: 0;
- }
  .box:hover .fig{
  	top: 0;
  	left: 0;
  	transition: all 0.2s ease-out;
+  display: block;
  }
+  .box:hover {
+    border:1px solid  rgb(245,190,126);
+  }
 
  .fig> p.actions {
-   a.see{
-     height:26px;font-size:11px;background-color:rgb(245,190,126);color: #fff;
-   }
+   text-align: left;
+   padding-left: 5px;
    a.add-to-cart{
-     height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:#fff;color:rgb(245,190,126);
-   }
-   a.like{
-     height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:rgb(245,190,126);
-     i{
-       color:#fff;
-     }
-   }
-   a.unlike{
-     height:26px;font-size:11px;border-color:rgb(245,190,126);background-color:#fff;
-     i{
-       color:rgb(245,190,126);
-     }
+    color:rgb(245,190,126);
    }
 }
 
-.fig> p.title{
-  font-size:12px;
-  text-align:left;
-  padding-left:18px;
-  margin-top:10px;
-}
-.fig> p.price{
-  font-size:12px;
-  text-align:left;
-  padding-left:18px;
-  color:#999;
+.panel-body{
+  padding: 5px;
+  font-size: 12px;
+  a:hover{
+    text-decoration: none;
+  }
+  span.price{
+    color: rgb(245,190,126);
+  }
+  span{
+    a.like{
+      color:#eee;
+    }
+    a.unlike{
+      color: rgb(245,190,126);
+    }
+  }
 }
 /* End of pins */
 
