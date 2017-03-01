@@ -2,7 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.order-page .col-md-8 {
+  border: 1px solid #e8e8e8;
+  padding: 0;
+  margin-bottom: 30px;
+  .column-labels label {
+    width: 33%;
+  }
+  .product-list {
+    background-color: #fff;
+    .name, .price, .quantity {
+      display: inline-block;
+      width: 33%;
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e8e8e8;
+      color: #aaa;
+    }
+  }
+  .total {
+    padding: 15px;
+    background-color: #f5f5f5;
+    span {
+      color: red;
+    }
+  }
+  .order-info {
+    background: #fff;
+    padding: 15px;
+    color: #aaa;
+  }
+
+  .actions {
+    background: #f5f5f5;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 15px;
+  }
+}
+
 .order-page .btn-danger, .order-page .btn-info {
   border-radius: 0;
-  
 }
