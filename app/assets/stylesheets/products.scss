@@ -98,6 +98,7 @@ font-size: 18px;
   }
 }
 
+
 .ending {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -345,7 +346,7 @@ div.social-share-button {
     font-size: 15px;
   }
   img {
-    width: 100%;
+    //width: 100%;
     -webkit-animation-name: opacity;
             animation-name: opacity;
     -webkit-animation-duration: .3s;
@@ -367,6 +368,7 @@ div.social-share-button {
   .faq{
     border-top: 1px dotted #dedede;
     margin-top: 20px;
+    font-weight: 200;
   }
 }
 
