@@ -20,6 +20,9 @@
 //= require social-share-button/wechat
 //= require_tree .
 
+
+
+
 /* welcome-page pins*/
 
 $(function(){
@@ -163,3 +166,8 @@ function removeItem(removeButton)
     recalculateCart();
   });
 }
+
+
+$(document).on('click', '.index', function () {
+  $('body').animate({'scrollTop': 0}, 700) 
+})

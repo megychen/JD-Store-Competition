@@ -149,3 +149,21 @@ div.alert {
   padding-bottom: 30px;
   border-top: 1px solid #D3D3D3;
 }
+
+/* index */
+
+.index {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 200px;
+  right: 30px;
+  background-color: #d8c095;
+  .fa-arrow-up {
+    color: #fff;
+    margin-left: 13px;
+    line-height: 40px;
+
+  }
+}

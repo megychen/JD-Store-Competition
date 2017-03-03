@@ -215,7 +215,7 @@
         <div class="fig" >
           <p class="actions ">
             <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to add_to_cart_product_path(product), class: "add-to-cart ",:method => :post do %>
+              <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :method => :post do %>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <% end %>
             <% else %>
@@ -348,6 +348,14 @@
 
 
 <!-- End of question -->
+
+<!--  Gotop index -->
+
+<div class="index">
+  <i class="fa fa-arrow-up"></i>
+</div>
+
+<!-- end of Gotop index -->
 
 <!-- Footer -->
 
