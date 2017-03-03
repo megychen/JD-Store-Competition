@@ -65,6 +65,10 @@ div.alert {
       a {
         font-size: 20px;
         color: #fff;
+        transition: 0.35s;
+      }
+      a:hover {
+        color: #D0CFCE;
       }
     }
     .navbar-nav li a {

@@ -233,17 +233,18 @@
     </div>
   </div><!-- End of proposal products -->
 </div><!-- End of product show page -->
-
+<%= content_for :handwrite_javascript do %>
 <script>
   $('.star-rating').raty({
-	  path: '/ratyrate/',
-		readOnly: true,
-		score: function() {
-			return $(this).attr('data-score');
-		}
-	 });
-	$('#star-rating').raty({
-		path: '/ratyrate/',
-		scoreName: 'review[rating]'
-		});
+    path: '/ratyrate/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+   });
+  $('#star-rating').raty({
+    path: '/ratyrate/',
+    scoreName: 'review[rating]'
+    });
 </script>
+<% end %>
