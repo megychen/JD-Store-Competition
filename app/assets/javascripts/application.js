@@ -167,7 +167,18 @@ function removeItem(removeButton)
   });
 }
 
+/* add to cart */
+
+
+$("body").click(function(){
+  $(".index").effect( "shake", {times:4}, 1000 );
+});
+
+
+
+
+
 
 $(document).on('click', '.index', function () {
-  $('body').animate({'scrollTop': 0}, 700) 
+  $('body').animate({'scrollTop': 0}, 700)
 })

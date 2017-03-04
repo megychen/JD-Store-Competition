@@ -62,7 +62,7 @@
   <div class="subheader animated">
     <ul class="subheader-content">
       <li class="active">
-        <%#= link_to("所有商品", products_path) %>
+        <%= link_to("所有商品", products_path) %>
       </li>
       <% Category.all.each do |category| %>
         <li>
@@ -215,7 +215,7 @@
         <div class="fig" >
           <p class="actions ">
             <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :method => :post do %>
+              <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :remote => true, :method => :post do %>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <% end %>
             <% else %>
