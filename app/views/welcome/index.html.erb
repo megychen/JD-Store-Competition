@@ -136,9 +136,10 @@
 <!-- our service and -->
 <div id="service" class="row">
   <div class="module-name decorative">
-    <i></i><span>我们的服务</span><i></i>
+    <!-- <i></i><span>我们的服务</span><i></i> -->
+    <span>我们为您提供</span>
   </div>
-  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+  <div class="col-md-10 col-md-offset-1 ">
     <div class="feedback-1">
       <div class="col-md-6 text-center">
         <h4 class="feedback-info">
@@ -198,9 +199,9 @@
 <!-- hot-products -->
 
 <div class="row" id="hot-products">
-  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+  <div class="col-md-10 col-md-offset-1">
     <div class="module-name decorative">
-      <i></i><span>人气商品推荐</span><i></i>
+      <span>我们向您推荐</span>
     </div>
     <div id="pins" class="transitions-enabled">
       <% @products.each do |product| %>
@@ -258,47 +259,44 @@
 
 <div id="customer-feedback" class="row">
   <div class="module-name decorative">
-    <i></i><span>用户真实反馈</span><i></i>
+    <span>我们的铁粉说</span>
   </div>
 
-  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+  <div class="col-md-10 col-md-offset-1">
     <div class="row">
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 ">
         <div class="quote-box-1">
-          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p>
-          <p class="feedback-info">
-            在伴客购买杯子<br><br>
-            绝对是我最棒的体验了<br><br>
-            清新的风格设计<br><br>
-            喝水时心情都会调起来<br><br>
-            <small>--顾客小萌</small>
-          </p>
+          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
+          <p class="feedback-info text-left">
+            在伴客购买杯子，绝对是我最棒的体验了<br>
+            每个杯子都是外观美质量赞<br>
+            喝水真得变成了一种享受，谢谢伴客～<br>
+            <small class="pull-right">顾客小萌 <img src="https://ww1.sinaimg.cn/large/006tNc79gy1fd7qeb8dqvj307y07gq2v.jpg" class="round-image-50" /></small>
+          </p><br><br><br>
           <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
         </div>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4">
         <div class="quote-box-1">
-          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p>
+          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
           <p class="feedback-info">
-            自从买了伴客保温杯<br><br>
-            现在外出旅游<br><br>
-            带一壶水可以喝一整天<br><br>
-            而且保温效果更持久<br><br>
-            <small>--顾客强仔</small>
-          </p>
+            自从买了伴客保温杯<br>
+            现在外出旅游,带一壶水可以喝一整天<br>
+            而且保温效果非常持久<br>
+            <small class="pull-right">顾客强仔 <img src="https://ww3.sinaimg.cn/large/006tNc79gy1fd7qed0swnj30b30alq32.jpg" class="round-image-50" /></small>
+          </p><br><br><br>
           <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
         </div>
       </div>
-      <div class="col-md-4 text-center">
+      <div class="col-md-4">
         <div class="quote-box-1">
-          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p>
+          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
           <p class="feedback-info">
-            平时是个杯子控<br><br>
-            但每次要想找到自己喜欢的<br><br>
-            都要花上很久的时间去海淘<br><br>
-            很开心伴客解决了我的苦恼<br><br>
-            <small>--顾客晓琪</small>
-          </p>
+            平时是个杯子控<br>
+            但每次要想找到自己喜欢的都要花很多时间<br>
+            很开心伴客解决了我的苦恼<br>
+            <small class="pull-right">顾客晓琪 <img src="https://ww3.sinaimg.cn/large/006tNc79gy1fd7qee04w0j30b40b4jrj.jpg" class="round-image-50" /></small>
+          </p><br><br><br>
           <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
         </div>
       </div>
@@ -324,10 +322,26 @@
 
 <div id="question" class="row">
   <div class="module-name decorative">
-    <i></i><span>FAQ</span><i></i>
+    <span>FAQ</span>
   </div>
-  <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+  <div class="col-md-10 col-md-offset-1">
     <div class="col-md-3 col-sm-6">
+<<<<<<< HEAD
+    <p class="sub-question"><b>Q：</b>杯子属于易碎物品，在邮递的过程中怎么保证完好无损呢？</p>
+    <p class="answer"><b>A：</b>伴客统一采用顺丰快递配送，我们的每一个商品都会严格包装，防止在运输的过程中破碎</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+    <p class="sub-question"><b>Q：</b>对于杯子的质感，你们会有把控吗？</p>
+    <p class="answer"><b>A：</b>伴客的每一款杯子都是很有质感的，我们的宗旨就是改变用户喝水的体验，所以质感方面都是严格把控的哦</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <p class="sub-question"><b>Q：</b>有的保温杯很有重量，不方便携带，而且保温效果不持久，你们有做改善吗？</p>
+      <p class="answer"><b>A：</b>伴客的每一款杯子，都追求的是轻巧、易携带，所以保温杯也是轻盈型的</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <p class="sub-question"><b>Q：</b>很多人买杯子有时只是为了好看而已，你们的设计风格是怎样的？</p>
+      <p class="answer"><b>A：</b>伴客杯子的设计风格偏简易、清新范，重在给顾客一种简单的心情</p>
+=======
     <p class="sub-question"><b>问：</b>杯子属于易碎物品，在邮递的过程中怎么保证完好无损呢？</p>
     <p class="answer" style="font-weight:200;"><b>答：</b>伴客统一采用顺丰快递配送，我们的每一个商品都会严格包装，防止在运输的过程中破碎</p>
     </div>
@@ -342,6 +356,7 @@
     <div class="col-md-3 col-sm-6">
       <p class="sub-question"><b>问：</b>很多人买杯子有时只是为了好看而已，你们的设计风格是怎样的？</p>
       <p class="answer" style="font-weight:200;"><b>答：</b>伴客杯子的设计风格偏简易、清新范，重在给顾客一种简单的心情</p>
+>>>>>>> 5a1f1ce9013e6a9e63878afa6be7ffcbb89e8037
     </div>
   </div>
 </div>

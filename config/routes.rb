@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
   resources :favorites
 
-  root "welcome#index"
+  root "landingpage#index"
 
   get 'about' => 'welcome#about'
 end
