@@ -1,6 +1,11 @@
-<div class="row checkout-page">
+<div class="row cart-page">
   <div class="col-md-8 col-md-offset-2">
     <h4>购物车宝贝~</h4>
+    <span class="pull-right">
+      <%= link_to("清空购物车", clean_carts_path, method: :delete, class: "pull-right",
+          style:"color: #E9967A;", data: {confirm: "你确定要清空整个购物车吗？"}) %>
+    </span>
+
     <div class="shopping-cart" style="margin-top: 50px;">
       <div class="column-labels">
         <label class="product-image">商品</label>

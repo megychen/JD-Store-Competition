@@ -73,7 +73,7 @@
     font-size: 24px;
   }
   display: inline-block;
-  margin-left: -75px;
+  margin-left: -155px;
 }
 
 .header-inner .header-center a:hover {
@@ -122,6 +122,14 @@
 
 .header-inner .header-right ul.dropdown-menu li a {
   color: rgba(0, 0, 0, 0.7);
+}
+
+.header-inner .header-right ul.dropdown-menu li a:hover {
+  background-color: #efeae1 !important;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #99838a !important;
 }
 
 .subheader {
@@ -324,8 +332,8 @@ section.awSlider .carousel .carousel-indicators{
     .quote-box-1 {
       padding: 30px 30px;
       background-color: #faf6ec;
-      color: #aaa;
-      font-weight: 100;
+      //color: #aaa;
+      font-weight: 200;
     }
   }
 }
@@ -343,6 +351,7 @@ section.awSlider .carousel .carousel-indicators{
  	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
  	  text-align: center;
     padding: 0px;
+    transition: 0.35s;
  	  img {
  	  	max-width: 100%;
  	  	height: auto;
@@ -423,8 +432,8 @@ section.awSlider .carousel .carousel-indicators{
     margin-bottom: 20px;
     h4.feedback-info {
       margin-top: 50px;
-      font-weight: lighter;
-      color: #aaa;
+      font-weight: 200;
+      //color: #aaa;
     }
   }
 }
@@ -452,6 +461,7 @@ section.awSlider .carousel .carousel-indicators{
   background-color: #faf6ec;
   margin-bottom: 45px;
   color: #aaa;
+  font-family: 200;
   .col-md-3 {
     padding: 20px;
     border-right: 1px solid #aaa;
@@ -462,10 +472,10 @@ section.awSlider .carousel .carousel-indicators{
   }
   .sub-question {
     margin-bottom: 15px;
-    color: rgba(0, 0, 0, 0.4);
+    //color: rgba(0, 0, 0, 0.4);
   }
   .answer {
-    color: rgba(0, 0, 0, 0.4);
+    //color: rgba(0, 0, 0, 0.4);
   }
 }
 

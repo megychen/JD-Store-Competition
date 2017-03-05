@@ -13,13 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require masonry/jquery.masonry
-
 //= require bootstrap-sprockets
 //= require jquery.raty
 //= require ratyrate
 //= require social-share-button
 //= require social-share-button/wechat
 //= require_tree .
+
+
+
 
 /* welcome-page pins*/
 
@@ -164,3 +166,19 @@ function removeItem(removeButton)
     recalculateCart();
   });
 }
+
+/* add to cart */
+
+
+$("body").click(function(){
+  $(".index").effect( "shake", {times:4}, 1000 );
+});
+
+
+
+
+
+
+$(document).on('click', '.index', function () {
+  $('body').animate({'scrollTop': 0}, 700)
+})
