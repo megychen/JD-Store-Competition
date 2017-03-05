@@ -62,7 +62,7 @@
   <div class="subheader animated">
     <ul class="subheader-content">
       <li class="active">
-        <%#= link_to("所有商品", products_path) %>
+        <%= link_to("所有商品", products_path) %>
       </li>
       <% Category.all.each do |category| %>
         <li>
@@ -215,7 +215,7 @@
         <div class="fig" >
           <p class="actions ">
             <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to add_to_cart_product_path(product), class: "add-to-cart ",:method => :post do %>
+              <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :remote => true, :method => :post do %>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <% end %>
             <% else %>
@@ -329,25 +329,33 @@
   <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
     <div class="col-md-3 col-sm-6">
     <p class="sub-question"><b>问：</b>杯子属于易碎物品，在邮递的过程中怎么保证完好无损呢？</p>
-    <p class="answer"><b>答：</b>伴客统一采用顺丰快递配送，我们的每一个商品都会严格包装，防止在运输的过程中破碎</p>
+    <p class="answer" style="font-weight:200;"><b>答：</b>伴客统一采用顺丰快递配送，我们的每一个商品都会严格包装，防止在运输的过程中破碎</p>
     </div>
     <div class="col-md-3 col-sm-6">
     <p class="sub-question"><b>问：</b>对于杯子的质感，你们会有把控吗？</p>
-    <p class="answer"><b>答：</b>伴客的每一款杯子都是很有质感的，我们的宗旨就是改变用户喝水的体验，所以质感方面都是严格把控的哦</p>
+    <p class="answer" style="font-weight:200;"><b>答：</b>伴客的每一款杯子都是很有质感的，我们的宗旨就是改变用户喝水的体验，所以质感方面都是严格把控的哦</p>
     </div>
     <div class="col-md-3 col-sm-6">
       <p class="sub-question"><b>问：</b>有的保温杯很有重量，不方便携带，而且保温效果不持久，你们有做改善吗？</p>
-      <p class="answer"><b>答：</b>伴客的每一款杯子，都追求的是轻巧、易携带，所以保温杯也是轻盈型的</p>
+      <p class="answer" style="font-weight:200;"><b>答：</b>伴客的每一款杯子，都追求的是轻巧、易携带，所以保温杯也是轻盈型的</p>
     </div>
     <div class="col-md-3 col-sm-6">
       <p class="sub-question"><b>问：</b>很多人买杯子有时只是为了好看而已，你们的设计风格是怎样的？</p>
-      <p class="answer"><b>答：</b>伴客杯子的设计风格偏简易、清新范，重在给顾客一种简单的心情</p>
+      <p class="answer" style="font-weight:200;"><b>答：</b>伴客杯子的设计风格偏简易、清新范，重在给顾客一种简单的心情</p>
     </div>
   </div>
 </div>
 
 
 <!-- End of question -->
+
+<!--  Gotop index -->
+
+<div class="index">
+  <i class="fa fa-arrow-up"></i>
+</div>
+
+<!-- end of Gotop index -->
 
 <!-- Footer -->
 
