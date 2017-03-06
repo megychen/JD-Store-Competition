@@ -31,6 +31,8 @@
    min-height: 100%;
    position: relative;
    background-color: rgb(250,246,236);
+   box-sizing: border-box;
+   overflow:hidden;
  }
 
  /* common flash */
