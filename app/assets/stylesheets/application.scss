@@ -39,6 +39,7 @@ div.alert {
   margin-top: 0px;
   margin-bottom: 0px;
   border-radius: 0;
+  text-align: center;
 }
 
 #error_explanation {
@@ -52,6 +53,14 @@ div.alert {
     margin-left: -38px !important;
     color: #bd9b9f;
   }
+}
+
+/* login page */
+
+.login-page {
+  margin-top:150px;
+  margin-bottom:30px;
+  line-height:275%;
 }
 
  /* common navbar */

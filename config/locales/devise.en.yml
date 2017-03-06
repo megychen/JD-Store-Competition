@@ -7,14 +7,14 @@ en:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are already signed in."
+      already_authenticated: "该账号已经登录."
       inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
+      invalid: "请输入正确的邮箱地址或密码."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
       not_found_in_database: "Invalid %{authentication_keys} or password."
       timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      unauthenticated: "请先登录."
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
@@ -43,20 +43,22 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "已成功登录品味伴客."
+      signed_out: "账号已登出."
+      already_signed_out: "账号已登出."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
+      confirmation: "两次密码输入不一致"
+      taken: "已经被注册过了"
       already_confirmed: "was already confirmed, please try signing in"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
       not_found: "not found"
       not_locked: "was not locked"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+      #one: "1 error prohibited this %{resource} from being saved:"
+      #other: "%{count} errors prohibited this %{resource} from being saved:"

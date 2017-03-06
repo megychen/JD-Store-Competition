@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+
+
+
+
+
 
 /* Header Section  */
 
@@ -288,7 +295,60 @@ section.awSlider .carousel .carousel-indicators{
 /*  End of Carousel */
 
 
-#service, #hot-products{
+
+/* banner-v2 section */
+
+.banner-v2 {
+  position: relative;
+  margin-top: 80px;
+  padding-top: 15px;
+  background-image: url("https://ww3.sinaimg.cn/large/006tNbRwgy1fdddc4srs0j31kw11xkjp.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 480px;
+  .banner-logo {
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 69px;
+  }
+  .banner-slogan {
+    position: relative;
+    color: #fff;
+    margin-top: 80px;
+    margin-left: 30%;
+    font-weight: 400;
+    width: 215px;
+  }
+  .sub-slogan {
+    margin-top: 20px;
+    font-size: 38px;
+    color: rgb(179, 149, 80);
+  }
+  .sign-up-button {
+    position: absolute;
+    background: #aaa;
+    opacity: 0.5;
+    height: 80px;
+    padding-top: 20px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  .btn-default {
+    background: rgb(179, 149, 80);
+    color: #fff;
+    margin-right: 30px;
+    border: 1px solid #fff;
+  }
+}
+
+
+
+
+
+
+#hot-products{
   margin: 0 auto;
   margin-bottom: 30px;
 }
@@ -323,6 +383,27 @@ section.awSlider .carousel .carousel-indicators{
 
 
 /* our service */
+
+#service {
+  background: #fff;
+  .service-slogan {
+    margin-top: 70px;
+    font-weight: 200;
+
+  }
+  .service-img {
+    //margin: 20px;
+  }
+  .col-md-6 {
+    margin-bottom: 20px;
+  }
+}
+
+#service .service-img img {
+  width: 95%;
+  opacity: 0.9;
+  height: 280px;
+}
 
 #service, #customer-feedback {
   padding-bottom: 50px;
@@ -435,7 +516,7 @@ section.awSlider .carousel .carousel-indicators{
   }
 
  .fig> p.actions {
-   text-align: right;
+   text-align: right !important;
    a.add-to-cart{
     color:rgb(245,190,126);
     padding-right:10px;
