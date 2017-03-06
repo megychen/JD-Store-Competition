@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .product-card-block{
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   .img-block{
@@ -47,6 +48,14 @@ font-size: 40px;
 color: #fff;
 opacity: 1;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+
+
+
+
+
 
 /* Header Section  */
 
@@ -343,6 +352,80 @@ ul.subheader-content {
   background-color: #faf6ec;
 }
 
+/*  End of Carousel */
+
+
+
+/* banner-v2 section */
+
+.banner-v2 {
+  margin-top: 105px;
+  height: 480px;
+  // background-image: url("https://ww3.sinaimg.cn/large/006tNbRwgy1fdddc4srs0j31kw11xkjp.jpg");
+  .banner-img{
+    height: 480px;
+    position: relative;
+    z-index:-1;
+    img{
+      width:100%;
+      opacity:0.6;
+      height:100%;
+    }
+  }
+  .banner-detail{
+    margin-top: -480px;
+    padding-top: 0px;
+    height: 460px;
+    position: relative;
+    z-index:1;
+    .banner-logo {
+      color: #fff;
+      font-family: 'Dancing Script', cursive;
+      font-size: 69px;
+    }
+    .banner-slogan {
+      position: relative;
+      color: #fff;
+      margin-top: 80px;
+      margin-left: 30%;
+      font-weight: 400;
+      width: 215px;
+    }
+    .sub-slogan {
+      margin-top: 20px;
+      margin-left: 40px;
+      font-size: 46px;
+      color: rgb(179, 149, 80);
+    }
+    .sign-up-button {
+      position: absolute;
+      background: #aaa;
+      opacity: 0.5;
+      height: 80px;
+      padding-top: 20px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+    .btn-default {
+      background: rgb(179, 149, 80);
+      color: #fff;
+      margin-right: 30px;
+      border: 1px solid #fff;
+    }
+  }
+}
+
+
+
+
+
+
+#hot-products{
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
 
 .module-name {
     margin-top: 45px;
@@ -376,6 +459,7 @@ ul.subheader-content {
 /* our service */
 
 
+
 #service {
  padding-bottom: 50px;
  background-color:#fff;
@@ -406,7 +490,10 @@ ul.subheader-content {
   color: rgba(0, 0, 0, 0.5);
 }
 
- #customer-feedback {
+
+
+#customer-feedback {
+
   padding-bottom: 50px;
   background-color:#fff;
   padding-top: 20px;
@@ -517,7 +604,7 @@ ul.subheader-content {
   }
 
  .fig> p.actions {
-   text-align: right;
+   text-align: right !important;
    a.add-to-cart{
     color:rgb(245,190,126);
     padding-right:10px;

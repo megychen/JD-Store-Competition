@@ -79,19 +79,19 @@
 
 <!-- banner section -->
 
-<div  id="banner">
+<!-- <div  id="banner">
   <div class="row">
     <div class="col-md-12">
       <section class="awSlider" style="">
         <div  class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
+          <!-Indicators -->
+          <!-- <ol class="carousel-indicators">
             <li data-target=".carousel" data-slide-to="0" class="active"></li>
             <li data-target=".carousel" data-slide-to="1"></li>
-          </ol>
+          </ol> -->
 
           <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
+          <!-- <div class="carousel-inner" role="listbox">
             <div class="item active" id="item1">
               <img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdd2jw6jstj31kw0dmape.jpg">
               <div class="carousel-caption" >
@@ -115,10 +115,10 @@
                 <%= link_to("了解更多", info_path, class: "btn ",  method: :get) %>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Controls -->
-          <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+          <!-- <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">品味伴客</span>
           </a>
@@ -131,66 +131,53 @@
       </section>
     </div>
   </div>
-</div>
+</div>  -->
 
 <!-- End of banner section -->
 
+<!-- banner-v2 -->
+
+<div class="banner-v2">
+  <div class="banner-img">
+    <img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fdddc4srs0j31kw11xkjp.jpg" />
+  </div>
+  <div class="banner-detail">
+    <h2 class="banner-logo text-center">
+      banke
+    </h2>
+    <div  class="banner-slogan">
+      <h2>给你的水加一份</h2>
+      <h1 class="sub-slogan">甜度</h1>
+    </div>
+    <div class="sign-up-button">
+      <% if !current_user %>
+        <%= link_to("马上注册", new_user_registration_path,  class: "btn") %>
+      <% else %>
+        <%= link_to(content_tag(:i, '马上行动', class: 'fa fa-hand-o-right'), products_path,  class: "btn btn-default pull-right") %>
+      <% end %>
+   </div>
+  </div>
+</div>
+
+
+<!-- end of banner-v2 -->
+
+
+
+<!-- test section -->
+
+
+
+<!-- end of test section -->
+
 <!-- our service and -->
+
 <div id="service" class="row">
+
   <div class="module-name decorative">
-    <!-- <i></i><span>我们的服务</span><i></i> -->
     <span>我们为您提供</span>
   </div>
-  <!-- <div class="col-md-10 col-md-offset-1 ">
-    <div class="feedback-1">
-      <div class="col-md-6 text-center">
-        <h4 class="feedback-info">
-          <p>生活总是忙碌的</p>
-          <p>常常向往一种通透明澈的简单</p>
-          <p><b>伴客玻璃杯</b></p>
-          <p>有着一气呵成的安适与自然</p>
-          <p>让你的世界剔透清明</p>
-        </h4>
-      </div>
-      <div class="col-md-6 text-center">
-        <p>
-          <%= image_tag("https://ww2.sinaimg.cn/large/006y8lVagy1fd5esgrqnvj31kw11x1l0.jpg") %>
-        </p>
-      </div>
-    </div>
-    <div class="feedback-2">
-      <div class="col-md-6 text-center">
-        <p>
-          <%= image_tag("https://ww2.sinaimg.cn/large/006y8lVagy1fd53dzuidsj31kw11o4qr.jpg") %>
-        </p>
-      </div>
-      <div class="col-md-6 text-center">
-        <h4 class="feedback-info">
-          <p>生活总是忙碌的</p>
-          <p>我们的心难免会着凉</p>
-          <p><b>伴客保温杯</b></p>
-          <p>如冬日里可爱的太阳</p>
-          <p>让你的世界温暖如初</p>
-        </h4>
-      </div>
-    </div>
-    <div class="feedback-3">
-      <div class="col-md-6 text-center">
-        <h4 class="feedback-info">
-          <p>生活总是忙碌的</p>
-          <p>都快忘记了我们的文化</p>
-          <p><b>伴客陶瓷杯</b></p>
-          <p>带你重温匠心手艺</p>
-          <p>静静享受旧时的美好</p>
-        </h4>
-      </div>
-      <div class="col-md-6 text-center">
-        <p>
-          <%= image_tag("https://ww2.sinaimg.cn/large/006y8lVagy1fd56lf9d25j31kw11x4qt.jpg") %>
-        </p>
-      </div>
-    </div>
-  </div> -->
+
   <div class="col-md-10 col-md-offset-1">
     <div class="row">
       <div class="col-md-4 ">
@@ -234,7 +221,6 @@
 </div>
 </div>
 
-
 <!-- end of our service -->
 
 
@@ -242,12 +228,12 @@
 <!-- hot-products -->
 
 <div class="row" id="hot-products">
+
   <div class="module-name decorative">
     <span>我们向您推荐</span>
   </div>
   <div class="container" style="margin-bottom:60px;">
       <div class="col-md-offset-1 col-md-10">
-          <div >
               <div id="myCarousel" class="carousel slide">
 
                   <!-- Carousel items -->
@@ -544,16 +530,14 @@
                       </div>
                       <!--/item-->
 
-                      </div>
-                      <!--/item-->
+
                   </div>
                   <!--/carousel-inner-->
                   <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
                   <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
               </div>
               <!--/myCarousel-->
-          </div>
-          <!--/well-->
+
       </div>
   </div>
 </div>
