@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* align service section */
+
+
+
+
+
+
 
 /* Header Section  */
 
@@ -288,7 +295,7 @@ section.awSlider .carousel .carousel-indicators{
 /*  End of Carousel */
 
 
-#service, #hot-products{
+#hot-products{
   margin: 0 auto;
   margin-bottom: 30px;
 }
@@ -323,6 +330,27 @@ section.awSlider .carousel .carousel-indicators{
 
 
 /* our service */
+
+#service {
+  background: #fff;
+  .service-slogan {
+    margin-top: 70px;
+    font-weight: 200;
+
+  }
+  .service-img {
+    //margin: 20px;
+  }
+  .col-md-6 {
+    margin-bottom: 20px;
+  }
+}
+
+#service .service-img img {
+  width: 95%;
+  opacity: 0.9;
+  height: 280px;
+}
 
 #service, #customer-feedback {
   padding-bottom: 50px;
@@ -435,7 +463,7 @@ section.awSlider .carousel .carousel-indicators{
   }
 
  .fig> p.actions {
-   text-align: right;
+   text-align: right !important;
    a.add-to-cart{
     color:rgb(245,190,126);
     padding-right:10px;
