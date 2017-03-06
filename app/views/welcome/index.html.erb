@@ -61,7 +61,7 @@
       </ul>
     </div>
   </div>
-  <div class="subheader animated">
+  <!-- <div class="subheader animated">
     <ul class="subheader-content">
       <li class="active">
         <%= link_to("所有商品", products_path) %>
@@ -72,7 +72,7 @@
         </li>
       <% end %>
     </ul>
-  </div>
+  </div> -->
   <%= render "common/flashes" %>
 </header>
 <!-- End of header section -->
@@ -139,23 +139,24 @@
 
 <div class="banner-v2">
   <div class="banner-img">
-    <img src="https://ww3.sinaimg.cn/large/006tNbRwgy1fdddc4srs0j31kw11xkjp.jpg" />
+    <img src="https://ww1.sinaimg.cn/large/006tNc79ly1fddhnk2fwwj31kw0lrwiv.jpg" />
   </div>
   <div class="banner-detail">
-    <h2 class="banner-logo text-center">
+    <!-- <h2 class="banner-logo ">
       banke
-    </h2>
+    </h2> -->
     <div  class="banner-slogan">
-      <h2>给你的水加一份</h2>
-      <h1 class="sub-slogan">甜度</h1>
+      <h2>
+        给你的水加一份<span class="sub-slogan "> 甜度</span>
+      </h2>
     </div>
     <div class="sign-up-button">
       <% if !current_user %>
-        <%= link_to("马上注册", new_user_registration_path,  class: "btn") %>
+        <%= link_to("马上注册", new_user_registration_path,  class: "btn btn-default") %>
       <% else %>
-        <%= link_to(content_tag(:i, '马上行动', class: 'fa fa-hand-o-right'), products_path,  class: "btn btn-default pull-right") %>
+        <%= link_to(content_tag(:i, '马上行动', class: 'fa fa-hand-o-right'), products_path,  class: "btn btn-default") %>
       <% end %>
-   </div>
+    </div>
   </div>
 </div>
 

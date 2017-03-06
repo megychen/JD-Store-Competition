@@ -3,58 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.product-card-block{
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-  .img-block{
-   border:2px solid #fff;
-
-   img{
-     width:100%;
-     height:100%;
-   }
-  }
-  .info-block{
-    padding: 5px 5px 5px 5px;
-    color:#f5be7e;
-    background-color: #fff;
-    p>span.price{
-
-    }
-    p>span.like{
-    a {
-      color:#f5be7e;
-
-    }
-    }
-  }
-}
-
-a.left.carousel-control{
-background: none;
-position: absolute;
-top: 40%;
-left: -10%;
-font-size: 40px;
-color: #fff;
-opacity: 1;
-
-}
-a.right.carousel-control{
-background: none;
-position: absolute;
-top: 40%;
-right: -10%;
-font-size: 40px;
-color: #fff;
-opacity: 1;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
-
-
-
-
-
 
 
 /* Header Section  */
@@ -261,114 +210,18 @@ ul.subheader-content {
   }
 }
 
-
-/* Carousel  */
-
-// #banner {
-//   margin-top: 106px;
-// }
-//
-// section.awSlider .carousel .carousel-inner > .item > img {
-//   display: block;
-//   max-width: 100%;
-//   width:100%;
-//   height:300px;
-//   line-height: 1;
-// }
-//
-// section.awSlider .carousel .carousel-inner{
-//   height:300px;
-// }
-//
-// section.awSlider .carousel .carousel-inner > .item >.carousel-caption {
-//   height: 300px;
-//   width: 300px;
-//   background-color: #fff;
-//   opacity:0.8;
-//   position: absolute;
-//   left: 60%;
-//   right: 0;
-//   bottom: 0;
-//   z-index: 10;
-//   padding-top: 20px;
-//   padding-bottom: 20px;
-//   color: #000;
-//   text-align: center;
-//   text-shadow: 0 0 0 rgba(0, 0, 0, 0.6);
-//   h3{
-//     margin-top:30px;
-//   }
-//   h1{
-//     color:rgb(211,122,130);margin-top:30px;
-//   }
-//   .btn{
-//     background-color:rgb(211,122,130);
-//     margin-top:15px;
-//     border-color:rgb(211,122,130);
-//     color:#fff;
-//   }
-//
-// }
-//
-// section.awSlider .carousel .carousel-inner > #item2.item >.carousel-caption{
-//   left:15%;
-//   right:0;
-//   h1{
-//     color:rgb(250,190,100);
-//     margin-top:30px;
-//   }
-//   .btn{
-//     background-color:rgb(250,190,100);
-//     margin-top:0;
-//     border-color:rgb(250,190,100);
-//     color:#fff;
-//   }
-// }
-//
-// section.awSlider .carousel .carousel-control .glyphicon-chevron-left,
-// section.awSlider .carousel .carousel-control .glyphicon-chevron-right {
-//   width: 45px;
-//   height: 45px;
-//   font-size: 30px;
-//   background-color: rgb(250,246,236);
-//   border-radius: 50%;
-//    padding-top: 6px;
-// }
-//
-// section.awSlider .carousel .carousel-indicators{
-//   display: none;
-// }
-//
-/*  End of Carousel */
-
-
-// #service, #hot-products{
-//   margin: 0 auto;
-//   margin-bottom: 60px;
-// }
-//
-
-#hot-products{
-  background-color: #faf6ec;
-}
-
-/*  End of Carousel */
-
-
-
 /* banner-v2 section */
 
 .banner-v2 {
-  margin-top: 105px;
+  margin-top: 60px;
   height: 480px;
-  // background-image: url("https://ww3.sinaimg.cn/large/006tNbRwgy1fdddc4srs0j31kw11xkjp.jpg");
   .banner-img{
     height: 480px;
     position: relative;
-    z-index:-1;
+    z-index:1;
     img{
       width:100%;
-      opacity:0.6;
+      opacity:0.7;
       height:100%;
     }
   }
@@ -377,7 +230,7 @@ ul.subheader-content {
     padding-top: 0px;
     height: 460px;
     position: relative;
-    z-index:1;
+    z-index:10;
     .banner-logo {
       color: #fff;
       font-family: 'Dancing Script', cursive;
@@ -386,46 +239,34 @@ ul.subheader-content {
     .banner-slogan {
       position: relative;
       color: #fff;
-      margin-top: 80px;
+      margin-top: 120px;
       margin-left: 30%;
       font-weight: 400;
-      width: 215px;
+      width: 400px;
     }
     .sub-slogan {
-      margin-top: 20px;
-      margin-left: 40px;
-      font-size: 46px;
-      color: rgb(179, 149, 80);
+      margin-top: 40px;
+      padding-right: 40px;
+      font-size: 50px;
     }
     .sign-up-button {
+      margin-left: 30%;
       position: absolute;
-      background: #aaa;
-      opacity: 0.5;
       height: 80px;
-      padding-top: 20px;
-      left: 0;
-      bottom: 0;
+      margin-top: 30px;
       width: 100%;
     }
     .btn-default {
-      background: rgb(179, 149, 80);
+      background: rgb(230,178,84);
       color: #fff;
-      margin-right: 30px;
+      height:50px;
+      width:150px;
+      padding-top: 7px;
+      font-size: 24px;
       border: 1px solid #fff;
     }
   }
 }
-
-
-
-
-
-
-#hot-products{
-  margin: 0 auto;
-  margin-bottom: 30px;
-}
-
 
 .module-name {
     margin-top: 45px;
@@ -458,8 +299,6 @@ ul.subheader-content {
 
 /* our service */
 
-
-
 #service {
  padding-bottom: 50px;
  background-color:#fff;
@@ -491,67 +330,55 @@ ul.subheader-content {
 }
 
 
+/* recommended products */
+#hot-products{
+  background-color: #faf6ec;
+}
+#hot-products{
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
 
-#customer-feedback {
-
-  padding-bottom: 50px;
-  background-color:#fff;
-  padding-top: 20px;
-  .col-md-4 {
-    padding: 15px 10px;
-    .quote-box-1 {
-      padding: 30px 30px;
-      background-color: #FFF;
-      color: rgba(0, 0, 0, 0.5);
-      line-height: 2em;
-      border:4px solid  #faf6ec;
-      margin-top:-41px;
-      position: relative;
-      z-index:1;
-      .fa{
-        color:#faf6ec;
-      }
-    }
+.product-card-block{
+ box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+ .img-block{
+  border:2px solid #fff;
+  img{
+    width:100%;
+    height:100%;
   }
-}
-.fd-avatar-box{
-    border:4px solid  #faf6ec;
-    border-radius: 168px;
-    width: 83px;
-    height: 83px;
-    background-color: #fff;
-    position: relative;
-
-    z-index: 14;
-    margin:0 auto;
-    .fd-avatar-box-color-overlay{
-      position: absolute;
-      background-color: none;
-      border-radius: 167px;
-      height: 83px;
-      width: 83px;
-
-    }
-    img { width: 100%;
-      margin:1px auto;
-      z-index: 15;}
-
-
-    .round-image-74 {
-      background-color: white;
-      border: 1px solid  #faf6ec;
-      border-radius: 37px;
-      -moz-border-radius: 37px;
-      -webkit-border-radius: 37px;
-      height: 74px;
-      width: 74px;
-      overflow: hidden;
-      text-align: center;
-    }
-
-
+ }
+ .info-block{
+   padding: 5px 5px 1px 5px;
+   color:#f5be7e;
+   background-color: #fff;
+   p>span.like{
+     a {
+       color:#f5be7e;
+     }
+   }
+ }
 }
 
+a.left.carousel-control{
+background: none;
+position: absolute;
+top: 40%;
+left: -10%;
+font-size: 40px;
+color: #fff;
+opacity: 1;
+
+}
+a.right.carousel-control{
+background: none;
+position: absolute;
+top: 40%;
+right: -10%;
+font-size: 40px;
+color: #fff;
+opacity: 1;
+}
 
 /* pins */
 
@@ -632,24 +459,62 @@ ul.subheader-content {
 }
 /* End of pins */
 
-
-
 /* customer-feedback */
-
-#service {
-  .feedback-1 img, .feedback-2 img, .feedback-3 img {
-    width: 100%;
-    height: auto;
-  }
-  .col-md-6 {
-    height: 328px;
-    margin-bottom: 20px;
-    h4.feedback-info {
-      margin-top: 50px;
-      font-weight: 200;
-      //color: #aaa;
+#customer-feedback {
+  padding-bottom: 50px;
+  background-color:#fff;
+  padding-top: 20px;
+  .col-md-4 {
+    padding: 15px 10px;
+    .quote-box-1 {
+      padding: 30px 30px;
+      background-color: #FFF;
+      color: rgba(0, 0, 0, 0.5);
+      line-height: 2em;
+      border:4px solid  #faf6ec;
+      margin-top:-41px;
+      position: relative;
+      z-index:1;
+      .fa{
+        color:#faf6ec;
+      }
     }
   }
+}
+.fd-avatar-box{
+    border:4px solid  #faf6ec;
+    border-radius: 168px;
+    width: 83px;
+    height: 83px;
+    background-color: #fff;
+    position: relative;
+
+    z-index: 14;
+    margin:0 auto;
+    .fd-avatar-box-color-overlay{
+      position: absolute;
+      background-color: none;
+      border-radius: 167px;
+      height: 83px;
+      width: 83px;
+
+    }
+    img {
+      width: 100%;
+      margin:1px auto;
+      z-index: 15;
+    }
+    .round-image-74 {
+      background-color: white;
+      border: 1px solid  #faf6ec;
+      border-radius: 37px;
+      -moz-border-radius: 37px;
+      -webkit-border-radius: 37px;
+      height: 74px;
+      width: 74px;
+      overflow: hidden;
+      text-align: center;
+    }
 }
 
 /* call-to-action */
@@ -666,8 +531,6 @@ ul.subheader-content {
     width: 150px;
   }
 }
-
-
 
 /* question */
 
