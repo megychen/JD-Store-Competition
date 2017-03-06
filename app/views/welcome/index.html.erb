@@ -77,19 +77,19 @@
 
 <!-- banner section -->
 
-<div  id="banner">
+<!-- <div  id="banner">
   <div class="row">
     <div class="col-md-12">
       <section class="awSlider" style="">
         <div  class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
-          <ol class="carousel-indicators">
+          <!-- <ol class="carousel-indicators">
             <li data-target=".carousel" data-slide-to="0" class="active"></li>
             <li data-target=".carousel" data-slide-to="1"></li>
-          </ol>
+          </ol> -->
 
           <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
+          <!-- <div class="carousel-inner" role="listbox">
             <div class="item active" id="item1">
               <img src="https://ww2.sinaimg.cn/large/006tNbRwly1fcygx0oeylj31kw0dmape.jpg">
               <div class="carousel-caption" >
@@ -113,10 +113,10 @@
                 <%= link_to("了解更多", info_path, class: "btn ",  method: :get) %>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Controls -->
-          <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+          <!-- <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">品味伴客</span>
           </a>
@@ -129,9 +129,35 @@
       </section>
     </div>
   </div>
-</div>
+</div>  --> -->
 
 <!-- End of banner section -->
+
+<!-- banner-v2 -->
+
+<div class="banner-v2">
+  <h2 class="banner-logo text-center">
+    banke
+  </h2>
+  <div  class="banner-slogan">
+    <h2>
+      给你的水加一份<br>
+      <span class="sub-slogan pull-right">甜度</span>
+    </h2>
+  </div>
+  <div class="sign-up-button">
+    <% if !current_user %>
+      <%= link_to("马上注册", new_user_registration_path,  class: "btn") %>
+    <% else %>
+      <%= link_to(content_tag(:i, '马上行动', class: 'fa fa-hand-o-right'), products_path,  class: "btn btn-default pull-right") %>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- end of banner-v2 -->
+
+
 
 <!-- test section -->
 
