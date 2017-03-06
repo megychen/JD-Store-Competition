@@ -12,7 +12,9 @@
       <!-- End Search -->
     </div>
     <div class="header-center">
-      <a href="/"><i class="fa fa-coffee" aria-hidden="true"></i> 品 味 伴 客</a>
+      <!-- <a href="/"><i class="fa fa-coffee" aria-hidden="true"></i> 品 味 伴 客</a> -->
+      <!-- <a href="/"><span><img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdcy9li35hg302s02sa9u.gif" style="width:40px;height:40px;margin-top:-3px;" /></span> 品 味 伴 客</a> -->
+      <a href="/">品 味 伴 客</a>
     </div>
     <div class="header-right pull-right">
       <ul class="nav navbar-nav navbar-right">
@@ -91,7 +93,7 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active" id="item1">
-              <img src="https://ww2.sinaimg.cn/large/006tNbRwly1fcygx0oeylj31kw0dmape.jpg">
+              <img src="https://ww4.sinaimg.cn/large/006tNc79ly1fdd2jw6jstj31kw0dmape.jpg">
               <div class="carousel-caption" >
                 <h3>给你的水加一份</h3>
                 <h1>甜度</h1>
@@ -104,7 +106,7 @@
               </div>
             </div>
             <div class="item" id="item2">
-              <img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcz1nxmozgj31kw0dl1dz.jpg">
+              <img src="https://ww3.sinaimg.cn/large/006tNc79ly1fdd2ki4o3gj31kw0dl1dz.jpg">
               <div class="carousel-caption">
                 <h3>10款融入</h3>
                 <h1>创意设计的</h1>
@@ -214,7 +216,7 @@
           <% end %>
         <% end %>
         <div class="fig" >
-          <p class="actions">
+          <p class="actions pull">
             <% if product.quantity.present? && product.quantity > 0 %>
               <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :remote => true, :method => :post do %>
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
