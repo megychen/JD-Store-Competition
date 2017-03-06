@@ -194,65 +194,42 @@
   <div class="col-md-10 col-md-offset-1">
     <div class="row">
       <div class="col-md-4 ">
-        <div class="service-item-box text-center">
-          <div class="service-item-box-color-overlay"></div>
-          <img src="https://ww1.sinaimg.cn/large/006tNc79gy1fd7qeb8dqvj307y07gq2v.jpg" class="round-image-74">
+        <div class="service-item-img text-center">
+          <img src="https://ww2.sinaimg.cn/large/006tNc79ly1fddbzdtxiij312s122444.jpg" class="round-image-160">
         </div>
 
-        <div class="quote-box-1">
-          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
-          <p class="service-info text-left">
-            在伴客购买杯子，绝对是我最棒的体验了<br>
-            每个杯子都是外观美质量赞<br>
-            喝水真得变成了一种享受，谢谢伴客～<br>
-          </p><br>
-          <p class="service-info text-center" style="font-size:16px;">
-            - 顾客小萌
-          </p>
-          <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
+        <div class="service-info text-center">
+          <h4>匠心手艺</h4><br />
+          <p>为您甄选最优质商品</p>
+          <p>免去您左顾右盼的烦恼  </p>
         </div>
      </div>
 
       <div class="col-md-4">
-        <div class="service-item-box text-center">
-          <div class="service-item-box-color-overlay"></div>
-          <img src="https://ww3.sinaimg.cn/large/006tNc79gy1fd7qed0swnj30b30alq32.jpg" class="round-image-74">
+        <div class="service-item-img text-center">
+          <img src="https://ww1.sinaimg.cn/large/006tNc79ly1fddc60tgtij30kt0ia74n.jpg" class="round-image-160">
         </div>
 
-        <div class="quote-box-1">
-          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
-          <p class="service-info">
-            自从买了伴客保温杯<br>
-            现在外出旅游,带一壶水可以喝一整天<br>
-            而且保温效果非常持久<br>
-          </p><br>
-          <p class="service-info text-center" style="font-size:16px;">
-            - 顾客强仔
-          </p>
-
-          <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
+        <div class="service-info text-center">
+          <h4>温暖时光</h4><br />
+          <p>为您准备最舒心的购物体验</p>
+          <p>从选购到使用，温暖相随</p>
         </div>
+
       </div>
       <div class="col-md-4">
-        <div class="service-item-box text-center">
-          <div class="service-item-box-color-overlay"></div>
-          <img src="https://ww3.sinaimg.cn/large/006tNc79gy1fd7qee04w0j30b40b4jrj.jpg" class="round-image-74">
+        <div class="service-item-img text-center">
+          <img src="https://ww1.sinaimg.cn/large/006tNc79ly1fddckx30w7j30rj0rogmv.jpg" class="round-image-160">
         </div>
 
-        <div class="quote-box-1">
-          <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
-          <p class="service-info">
-            平时是个杯子控<br>
-            但每次要想找到自己喜欢的都要花很多时间<br>
-            很开心伴客解决了我的苦恼<br>
-          </p><br>
-          <p class="service-info text-center" style="font-size:16px;">
-            - 顾客晓琪
-          </p>
-          <p><i class="fa fa-quote-right pull-right" aria-hidden="true"></i></p>
+        <div class="service-info text-center">
+          <h4>贴心服务</h4><br />
+          <p>为您的宝贝穿上铠甲</p>
+          <p>必定完璧送至您手中</p>
         </div>
-      </div>
+
     </div>
+  </div>
 
 </div>
 </div>
@@ -265,61 +242,11 @@
 <!-- hot-products -->
 
 <div class="row" id="hot-products">
-  <!-- <div class="col-md-10 col-md-offset-1">
-
-    <div id="pins" class="transitions-enabled">
-      <% @products.each do |product| %>
-      <div class="box panel panel-default">
-        <%= link_to product_path(product) do %>
-          <% if product.photos.present? %>
-            <%= image_tag(product.photos[0].image.url) %>
-          <% else %>
-            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-          <% end %>
-        <% end %>
-        <div class="fig" >
-          <p class="actions">
-            <% if product.quantity.present? && product.quantity > 0 %>
-              <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :remote => true, :method => :post do %>
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              <% end %>
-            <% else %>
-              已销售一空，无法购买
-            <% end %>
-          </p>
-        </div>
-        <div class="panel-body" style="padding:5px;">
-          <p >
-            <span  class="price pull-left" >￥ <%= product.price %> </span>
-            <span class="pull-right">
-              <% if user_signed_in? %>
-                <% if !current_user.is_fan_of?(product) %>
-                  <%= link_to favorite_product_path(product), :class => "like ",  method: :post do %>
-                    <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-                  <% end %>
-                <% else %>
-                  <%= link_to unfavorite_product_path(product), :class => "unlike ",method: :post do %>
-                    <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <%= link_to favorite_product_path(product), :class => "like ",  method: :post do %>
-                  <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-                <% end %>
-              <% end %>
-            </span>
-          </p>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div> -->
   <div class="module-name decorative">
     <span>我们向您推荐</span>
   </div>
-  <div class="container">
+  <div class="container" style="margin-bottom:60px;">
       <div class="col-md-offset-1 col-md-10">
-          <!-- <div class="well" style="background-color:#fff;"> -->
           <div >
               <div id="myCarousel" class="carousel slide">
 
@@ -650,11 +577,11 @@
 
         <div class="quote-box-1">
           <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
-          <p class="feedback-info text-left">
+          <p class="feedback-info text-center">
             在伴客购买杯子，绝对是我最棒的体验了<br>
             每个杯子都是外观美质量赞<br>
             喝水真得变成了一种享受，谢谢伴客～<br>
-          </p><br>
+          </p>
           <p class="feedback-info text-center" style="font-size:16px;">
             - 顾客小萌
           </p>
@@ -670,11 +597,11 @@
 
         <div class="quote-box-1">
           <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
-          <p class="feedback-info">
+          <p class="feedback-info text-center">
             自从买了伴客保温杯<br>
             现在外出旅游,带一壶水可以喝一整天<br>
             而且保温效果非常持久<br>
-          </p><br>
+          </p>
           <p class="feedback-info text-center" style="font-size:16px;">
             - 顾客强仔
           </p>
@@ -690,11 +617,11 @@
 
         <div class="quote-box-1">
           <p><i class="fa fa-quote-left pull-left" aria-hidden="true"></i></p><br>
-          <p class="feedback-info">
+          <p class="feedback-info text-center">
             平时是个杯子控<br>
             但每次要找到自己喜欢的都要花很多时间<br>
             很开心伴客解决了我的苦恼<br>
-          </p><br>
+          </p>
           <p class="feedback-info text-center" style="font-size:16px;">
             - 顾客晓琪
           </p>
