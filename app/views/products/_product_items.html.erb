@@ -1,99 +1,42 @@
-<!-- <div class=" col-md-3 col-sm-3">
-  <div class="box panel panel-default">
-    <div class="image">
-      <%= link_to product_path(product) do %>
-        <% if product.photos.present? %>
-          <%= image_tag(product.photos[0].image.url) %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+<div class="box panel panel-default">
+  <%= link_to product_path(product) do %>
+    <% if product.photos.present? %>
+      <%= image_tag(product.photos[0].image.url) %>
+    <% else %>
+      <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+    <% end %>
+  <% end %>
+  <div class="fig" >
+    <p class="actions">
+      <% if product.quantity.present? && product.quantity > 0 %>
+        <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :remote => true, :method => :post do %>
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         <% end %>
+      <% else %>
+        已销售一空，无法购买
       <% end %>
-    </div>
-
-    <div class="fig" >
-      <p class="actions " style="padding-right:15px;" >
-        <% if product.quantity.present? && product.quantity > 0 %>
-          <%= link_to add_to_cart_product_path(product), class: "add-to-cart ",:method => :post do %>
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          <% end %>
-        <% else %>
-          已销售一空，无法购买
-        <% end %>
-      </p>
-    </div>
-    <div class="panel-body" style="padding:5px;">
-      <p >
-        <span  class="price pull-left" >￥ <%= product.price %> </span>
-        <span class="pull-right">
-          <% if user_signed_in? %>
-            <% if !current_user.is_fan_of?(product) %>
-              <%= link_to favorite_product_path(product), :class => "like ",  method: :post do %>
-                <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-              <% end %>
-            <% else %>
-              <%= link_to unfavorite_product_path(product), :class => "unlike ",method: :post do %>
-                <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-              <% end %>
-            <% end %>
-          <% else %>
+    </p>
+  </div>
+  <div class="panel-body" style="padding:5px;">
+    <p >
+      <span  class="price pull-left" >￥ <%= product.price %> </span>
+      <span class="pull-right">
+        <% if user_signed_in? %>
+          <% if !current_user.is_fan_of?(product) %>
             <%= link_to favorite_product_path(product), :class => "like ",  method: :post do %>
               <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
             <% end %>
-          <% end %>
-        </span>
-      </p>
-    </div>
-  </div>
-</div> -->
-
-
-
-<div class="col-md-10 col-md-offset-1">
-
-  <div id="pins" class="transitions-enabled">
-    <% @products.each do |product| %>
-    <div class="box panel panel-default">
-      <%= link_to product_path(product) do %>
-        <% if product.photos.present? %>
-          <%= image_tag(product.photos[0].image.url) %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
-        <% end %>
-      <% end %>
-      <div class="fig" >
-        <p class="actions">
-          <% if product.quantity.present? && product.quantity > 0 %>
-            <%= link_to add_to_cart_product_path(product), class: "add-to-cart", :remote => true, :method => :post do %>
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <% end %>
           <% else %>
-            已销售一空，无法购买
-          <% end %>
-        </p>
-      </div>
-      <div class="panel-body" style="padding:5px;">
-        <p >
-          <span  class="price pull-left" >￥ <%= product.price %> </span>
-          <span class="pull-right">
-            <% if user_signed_in? %>
-              <% if !current_user.is_fan_of?(product) %>
-                <%= link_to favorite_product_path(product), :class => "like ",  method: :post do %>
-                  <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-                <% end %>
-              <% else %>
-                <%= link_to unfavorite_product_path(product), :class => "unlike ",method: :post do %>
-                  <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-                <% end %>
-              <% end %>
-            <% else %>
-              <%= link_to favorite_product_path(product), :class => "like ",  method: :post do %>
-                <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
-              <% end %>
+            <%= link_to unfavorite_product_path(product), :class => "unlike ",method: :post do %>
+              <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
             <% end %>
-          </span>
-        </p>
-      </div>
-    </div>
-    <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to favorite_product_path(product), :class => "like ",  method: :post do %>
+            <i class="fa fa-heart fa-lg"></i><%= product.fans.count %>
+          <% end %>
+        <% end %>
+      </span>
+    </p>
   </div>
 </div>
